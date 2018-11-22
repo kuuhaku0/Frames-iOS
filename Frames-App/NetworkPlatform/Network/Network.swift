@@ -12,7 +12,7 @@ import Domain
 import RxAlamofire
 import RxSwift
 
-final class Network<T: Decodable> {
+final class Network<T: Codable> {
     private let endPoint: String
     private let scheduler: ConcurrentDispatchQueueScheduler
     

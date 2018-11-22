@@ -18,7 +18,7 @@ public final class UseCaseProvider: Domain.UseCaseProvider {
     
     public func makeCommentUseCase() -> Domain.CommentUseCase {
         return CommentUseCase(network: networkProvider.makeCommentsNetwork(),
-                            cache: Cache<Comment>)
+                            cache: Cache<Comment>(path: "allComments"))
     }
 
 }

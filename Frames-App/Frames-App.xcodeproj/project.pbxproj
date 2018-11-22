@@ -11,6 +11,7 @@
 		853DDB6A2586A2DCD15F97F9 /* Pods_Frames_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAE3136C717AC497A1801E2 /* Pods_Frames_AppTests.framework */; };
 		A1EA2F33FFBC516C220F10DA /* Pods_NetworkPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC533B672C2AC69F9A931A22 /* Pods_NetworkPlatform.framework */; };
 		ACC1B036B728FC2D2754EF98 /* Pods_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B185D1DB759DD656CC04A18F /* Pods_DomainTests.framework */; };
+		D200462221A6927900CC700E /* CommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200462121A6927900CC700E /* CommentUseCase.swift */; };
 		D234E01121A3BDBB00769C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234E01021A3BDBB00769C12 /* AppDelegate.swift */; };
 		D234E01621A3BDBB00769C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D234E01421A3BDBB00769C12 /* Main.storyboard */; };
 		D234E01821A3BDBC00769C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D234E01721A3BDBC00769C12 /* Assets.xcassets */; };
@@ -152,6 +153,7 @@
 		B185D1DB759DD656CC04A18F /* Pods_DomainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EC138D481789AED70BC606 /* Pods-Frames-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Frames-AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Frames-AppUITests/Pods-Frames-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8331A9B297CDB5C7361783E /* Pods-NetworkPlatformTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkPlatformTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkPlatformTests/Pods-NetworkPlatformTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D200462121A6927900CC700E /* CommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUseCase.swift; sourceTree = "<group>"; };
 		D234E00D21A3BDBB00769C12 /* Frames-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Frames-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D234E01021A3BDBB00769C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D234E01521A3BDBB00769C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				D234E0D221A3DC9200769C12 /* UseCaseProvider.swift */,
+				D200462121A6927900CC700E /* CommentUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -1227,6 +1230,7 @@
 				D234E0D321A3DC9200769C12 /* UseCaseProvider.swift in Sources */,
 				D234E0DC21A3DE2E00769C12 /* Cache.swift in Sources */,
 				D234E0F021A6824200769C12 /* Comment+Mapping.swift in Sources */,
+				D200462221A6927900CC700E /* CommentUseCase.swift in Sources */,
 				D234E0F221A6835C00769C12 /* CommentNetwork.swift in Sources */,
 				D234E0D521A3DD0F00769C12 /* NetworkProvider.swift in Sources */,
 				D234E0D721A3DD4D00769C12 /* Network.swift in Sources */,
