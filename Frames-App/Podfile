@@ -55,6 +55,7 @@ target 'NetworkPlatform' do
   rx_cocoa
   pod 'Alamofire'
   pod 'RxAlamofire'
+  pod 'AWSAppSync', '~> 2.6.24'
 
   target 'NetworkPlatformTests' do
     inherit! :search_paths

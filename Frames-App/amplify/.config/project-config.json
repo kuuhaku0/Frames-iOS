@@ -1,0 +1,11 @@
+{
+    "projectName": "FramesApp",
+    "projectPath": "/Users/tylerzhao/Desktop/Frames-MVP-V1/Frames-App",
+    "defaultEditor": "idea14ce",
+    "frontendHandler": {
+        "ios": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-ios"
+    },
+    "providers": {
+        "awscloudformation": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+    }
+}

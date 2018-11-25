@@ -1,0 +1,32 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "ramespp-20181122143709-authRole",
+			"UnauthRoleArn": "arn:aws:iam::983727613391:role/ramespp-20181122143709-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::983727613391:role/ramespp-20181122143709-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "ramespp-20181122143709-deployment",
+			"UnauthRoleName": "ramespp-20181122143709-unauthRole",
+			"StackName": "ramespp-20181122143709",
+			"StackId": "arn:aws:cloudformation:us-east-1:983727613391:stack/ramespp-20181122143709/00a88150-ee8e-11e8-80cb-128e2cab805c"
+		}
+	},
+	"api": {
+		"framesapp": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "API_KEY",
+				"GraphQLAPIIdOutput": "cw3vhpdy2jfo3o24vn57nt7e2a",
+				"GraphQLAPIEndpointOutput": "https://ndrc7j7hjfgsra37eg4nysqth4.appsync-api.us-east-1.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-oubx47mjtradnmy3btg5ubxspy"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/ramespp-20181122143709-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apiframesapp"
+			},
+			"lastPushTimeStamp": "2018-11-22T19:45:48.581Z",
+			"lastPushDirHash": "N8StgfSq0dcMCI5k8NdJ5FYLPFc="
+		}
+	}
+}

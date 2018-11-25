@@ -12,6 +12,7 @@
 		A1EA2F33FFBC516C220F10DA /* Pods_NetworkPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC533B672C2AC69F9A931A22 /* Pods_NetworkPlatform.framework */; };
 		ACC1B036B728FC2D2754EF98 /* Pods_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B185D1DB759DD656CC04A18F /* Pods_DomainTests.framework */; };
 		D200462221A6927900CC700E /* CommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200462121A6927900CC700E /* CommentUseCase.swift */; };
+		D200462621A73D5500CC700E /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D200462521A73D5500CC700E /* awsconfiguration.json */; };
 		D234E01121A3BDBB00769C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234E01021A3BDBB00769C12 /* AppDelegate.swift */; };
 		D234E01621A3BDBB00769C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D234E01421A3BDBB00769C12 /* Main.storyboard */; };
 		D234E01821A3BDBC00769C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D234E01721A3BDBC00769C12 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		D234E0EE21A6767A00769C12 /* CommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234E0ED21A6767A00769C12 /* CommentUseCase.swift */; };
 		D234E0F021A6824200769C12 /* Comment+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234E0EF21A6824200769C12 /* Comment+Mapping.swift */; };
 		D234E0F221A6835C00769C12 /* CommentNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234E0F121A6835C00769C12 /* CommentNetwork.swift */; };
+		D2C956A521AB442E00B90842 /* WaterFallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956A421AB442E00B90842 /* WaterFallLayout.swift */; };
 		F33226647B50A28647326C71 /* Pods_Frames_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784D0A24E22EA5CE09FAF03D /* Pods_Frames_App.framework */; };
 		FC6CEDD09FEFB37168AB527D /* Pods_NetworkPlatformTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */; };
 /* End PBXBuildFile section */
@@ -154,6 +156,7 @@
 		B2EC138D481789AED70BC606 /* Pods-Frames-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Frames-AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Frames-AppUITests/Pods-Frames-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8331A9B297CDB5C7361783E /* Pods-NetworkPlatformTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkPlatformTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkPlatformTests/Pods-NetworkPlatformTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D200462121A6927900CC700E /* CommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUseCase.swift; sourceTree = "<group>"; };
+		D200462521A73D5500CC700E /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		D234E00D21A3BDBB00769C12 /* Frames-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Frames-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D234E01021A3BDBB00769C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D234E01521A3BDBB00769C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -205,6 +208,7 @@
 		D234E0ED21A6767A00769C12 /* CommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUseCase.swift; sourceTree = "<group>"; };
 		D234E0EF21A6824200769C12 /* Comment+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+Mapping.swift"; sourceTree = "<group>"; };
 		D234E0F121A6835C00769C12 /* CommentNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentNetwork.swift; sourceTree = "<group>"; };
+		D2C956A421AB442E00B90842 /* WaterFallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallLayout.swift; sourceTree = "<group>"; };
 		E976B25A8E8AA910702EBC93 /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		EC533B672C2AC69F9A931A22 /* Pods_NetworkPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkPlatformTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -323,6 +327,7 @@
 		D234E00F21A3BDBB00769C12 /* Frames-App */ = {
 			isa = PBXGroup;
 			children = (
+				D2C956A621AB443700B90842 /* CustomUI */,
 				D234E08A21A3D22D00769C12 /* Application */,
 				D234E08421A3D07600769C12 /* Common */,
 				D234E08521A3D09000769C12 /* Scenes */,
@@ -356,6 +361,7 @@
 			children = (
 				D234E01421A3BDBB00769C12 /* Main.storyboard */,
 				D234E01C21A3BDBC00769C12 /* Info.plist */,
+				D200462521A73D5500CC700E /* awsconfiguration.json */,
 				D234E01721A3BDBC00769C12 /* Assets.xcassets */,
 				D234E01921A3BDBC00769C12 /* LaunchScreen.storyboard */,
 			);
@@ -547,6 +553,14 @@
 				D234E0D921A3DDD500769C12 /* Encodable.swift */,
 			);
 			path = Encodable;
+			sourceTree = "<group>";
+		};
+		D2C956A621AB443700B90842 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				D2C956A421AB442E00B90842 /* WaterFallLayout.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 		F5A0B05FC687538D56F7C73F /* Pods */ = {
@@ -839,6 +853,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D200462621A73D5500CC700E /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,8 +901,12 @@
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSAppSync/AWSAppSync.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -896,8 +915,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAppSync.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1111,8 +1134,12 @@
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSAppSync/AWSAppSync.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -1124,8 +1151,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAppSync.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1171,6 +1202,7 @@
 			files = (
 				D234E08E21A3D35E00769C12 /* Reusable.swift in Sources */,
 				D234E09021A3D5AF00769C12 /* UserProfileViewController.swift in Sources */,
+				D2C956A521AB442E00B90842 /* WaterFallLayout.swift in Sources */,
 				D234E09821A3D8B600769C12 /* DiscoverPageViewController.swift in Sources */,
 				D234E08C21A3D23800769C12 /* Application.swift in Sources */,
 				D234E09E21A3D93300769C12 /* StudioViewController.swift in Sources */,

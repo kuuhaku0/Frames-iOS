@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import AWSAppSync
 
 class MainFeedViewController: UIViewController {
     
     var viewModel: MainFeedViewModel!
-
+    var appSyncClient: AWSAppSyncClient?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appSyncClient = appDelegate.appSyncClient
     }
     
     private func bindViewModel() {
@@ -24,5 +27,5 @@ class MainFeedViewController: UIViewController {
         let output = MainFeedViewModel.Output()
         
     }
-    
+
 }

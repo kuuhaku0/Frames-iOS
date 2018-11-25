@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "ramespp-20181122143709-authRole",
+            "UnauthRoleArn": "arn:aws:iam::983727613391:role/ramespp-20181122143709-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::983727613391:role/ramespp-20181122143709-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "ramespp-20181122143709-deployment",
+            "UnauthRoleName": "ramespp-20181122143709-unauthRole",
+            "StackName": "ramespp-20181122143709",
+            "StackId": "arn:aws:cloudformation:us-east-1:983727613391:stack/ramespp-20181122143709/00a88150-ee8e-11e8-80cb-128e2cab805c"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "AppSyncApiName": "framesapp",
+    "schemaGraphql": "s3://ramespp-20181122143709-deployment/amplify-appsync-files/schema.graphql.1542915794111",
+    "ResolverBucket": "ramespp-20181122143709-deployment",
+    "ResolverRootKey": "amplify-appsync-files",
+    "DeploymentTimestamp": "1542915794111"
+}
