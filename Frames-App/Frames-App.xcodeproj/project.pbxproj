@@ -72,6 +72,7 @@
 		D2C956C421B7653600B90842 /* ObservableTypes + Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C321B7653600B90842 /* ObservableTypes + Extras.swift */; };
 		D2C956C721B765D100B90842 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C621B765D100B90842 /* SignUpViewController.swift */; };
 		D2C956CA21B7660700B90842 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C921B7660700B90842 /* SignUpViewModel.swift */; };
+		D2C956CC21B76C1200B90842 /* FramesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956CB21B76C1200B90842 /* FramesNavigationController.swift */; };
 		F33226647B50A28647326C71 /* Pods_Frames_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784D0A24E22EA5CE09FAF03D /* Pods_Frames_App.framework */; };
 		FC6CEDD09FEFB37168AB527D /* Pods_NetworkPlatformTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */; };
 /* End PBXBuildFile section */
@@ -237,6 +238,7 @@
 		D2C956C321B7653600B90842 /* ObservableTypes + Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableTypes + Extras.swift"; sourceTree = "<group>"; };
 		D2C956C621B765D100B90842 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D2C956C921B7660700B90842 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		D2C956CB21B76C1200B90842 /* FramesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesNavigationController.swift; sourceTree = "<group>"; };
 		E976B25A8E8AA910702EBC93 /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		EC533B672C2AC69F9A931A22 /* Pods_NetworkPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkPlatformTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,7 +363,6 @@
 				D2C956A921B75ABB00B90842 /* Coordinator */,
 				D234E08521A3D09000769C12 /* Scenes */,
 				D234E03F21A3BE2F00769C12 /* Utility */,
-				D234E01021A3BDBB00769C12 /* AppDelegate.swift */,
 				D234E03E21A3BE1700769C12 /* Supporting Files */,
 			);
 			path = "Frames-App";
@@ -451,6 +452,7 @@
 		D234E08421A3D07600769C12 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D234E01021A3BDBB00769C12 /* AppDelegate.swift */,
 				D2C956C121B762AA00B90842 /* Constants.swift */,
 				D234E08221A3D03700769C12 /* ViewModelType.swift */,
 			);
@@ -591,6 +593,7 @@
 			isa = PBXGroup;
 			children = (
 				D2C956A421AB442E00B90842 /* WaterFallLayout.swift */,
+				D2C956CB21B76C1200B90842 /* FramesNavigationController.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -1296,6 +1299,7 @@
 				D2C956B921B7623100B90842 /* String+Extentions.swift in Sources */,
 				D234E09421A3D80700769C12 /* MainFeedViewModel.swift in Sources */,
 				D234E09221A3D5C400769C12 /* UserProfileViewModel.swift in Sources */,
+				D2C956CC21B76C1200B90842 /* FramesNavigationController.swift in Sources */,
 				D2C956C421B7653600B90842 /* ObservableTypes + Extras.swift in Sources */,
 				D2C956B821B7623100B90842 /* UIView+Extentions.swift in Sources */,
 				D234E09621A3D85800769C12 /* MainFeedViewController.swift in Sources */,

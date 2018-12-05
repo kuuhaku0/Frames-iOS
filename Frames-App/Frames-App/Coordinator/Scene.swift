@@ -14,7 +14,7 @@ protocol TargetScene {
 
 enum Scene {
     case login
-    case signUp
+    case signUp(SignUpViewModel)
     case mainFeed(MainFeedViewModel)
     case discoverPage(DiscoverPageViewModel)
     case studio(StudioViewModel)

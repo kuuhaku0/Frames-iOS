@@ -24,7 +24,6 @@ final class Application {
         
         let mainFeedNavigationController = UINavigationController()
 
-        
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [
             mainFeedNavigationController
