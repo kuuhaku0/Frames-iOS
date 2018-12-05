@@ -62,6 +62,14 @@
 		D2C956AB21B75AD400B90842 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956AA21B75AD400B90842 /* SceneCoordinatorType.swift */; };
 		D2C956AD21B75B1400B90842 /* SceneTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956AC21B75B1400B90842 /* SceneTransitionType.swift */; };
 		D2C956AF21B75B9000B90842 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956AE21B75B9000B90842 /* Scene.swift */; };
+		D2C956B821B7623100B90842 /* UIView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956B121B7623000B90842 /* UIView+Extentions.swift */; };
+		D2C956B921B7623100B90842 /* String+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956B221B7623000B90842 /* String+Extentions.swift */; };
+		D2C956BA21B7623100B90842 /* Date+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956B321B7623000B90842 /* Date+Extentions.swift */; };
+		D2C956BC21B7623100B90842 /* UIColor+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956B521B7623000B90842 /* UIColor+Extentions.swift */; };
+		D2C956BD21B7623100B90842 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956B621B7623000B90842 /* URL.swift */; };
+		D2C956BE21B7623100B90842 /* Int+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956B721B7623100B90842 /* Int+Extentions.swift */; };
+		D2C956C221B762AA00B90842 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C121B762AA00B90842 /* Constants.swift */; };
+		D2C956C421B7653600B90842 /* ObservableTypes + Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C321B7653600B90842 /* ObservableTypes + Extras.swift */; };
 		F33226647B50A28647326C71 /* Pods_Frames_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784D0A24E22EA5CE09FAF03D /* Pods_Frames_App.framework */; };
 		FC6CEDD09FEFB37168AB527D /* Pods_NetworkPlatformTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */; };
 /* End PBXBuildFile section */
@@ -217,6 +225,14 @@
 		D2C956AA21B75AD400B90842 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		D2C956AC21B75B1400B90842 /* SceneTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionType.swift; sourceTree = "<group>"; };
 		D2C956AE21B75B9000B90842 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		D2C956B121B7623000B90842 /* UIView+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extentions.swift"; sourceTree = "<group>"; };
+		D2C956B221B7623000B90842 /* String+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extentions.swift"; sourceTree = "<group>"; };
+		D2C956B321B7623000B90842 /* Date+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extentions.swift"; sourceTree = "<group>"; };
+		D2C956B521B7623000B90842 /* UIColor+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extentions.swift"; sourceTree = "<group>"; };
+		D2C956B621B7623000B90842 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		D2C956B721B7623100B90842 /* Int+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extentions.swift"; sourceTree = "<group>"; };
+		D2C956C121B762AA00B90842 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D2C956C321B7653600B90842 /* ObservableTypes + Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableTypes + Extras.swift"; sourceTree = "<group>"; };
 		E976B25A8E8AA910702EBC93 /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		EC533B672C2AC69F9A931A22 /* Pods_NetworkPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkPlatformTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -380,6 +396,7 @@
 		D234E03F21A3BE2F00769C12 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D2C956B021B7621100B90842 /* Extensions */,
 				D234E08D21A3D35E00769C12 /* Reusable.swift */,
 			);
 			path = Utility;
@@ -430,6 +447,7 @@
 		D234E08421A3D07600769C12 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D2C956C121B762AA00B90842 /* Constants.swift */,
 				D234E08221A3D03700769C12 /* ViewModelType.swift */,
 			);
 			path = Common;
@@ -581,6 +599,28 @@
 				D2C956AE21B75B9000B90842 /* Scene.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		D2C956B021B7621100B90842 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D2C956C521B7653C00B90842 /* Rx */,
+				D2C956B321B7623000B90842 /* Date+Extentions.swift */,
+				D2C956B721B7623100B90842 /* Int+Extentions.swift */,
+				D2C956B221B7623000B90842 /* String+Extentions.swift */,
+				D2C956B521B7623000B90842 /* UIColor+Extentions.swift */,
+				D2C956B121B7623000B90842 /* UIView+Extentions.swift */,
+				D2C956B621B7623000B90842 /* URL.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D2C956C521B7653C00B90842 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				D2C956C321B7653600B90842 /* ObservableTypes + Extras.swift */,
+			);
+			path = Rx;
 			sourceTree = "<group>";
 		};
 		F5A0B05FC687538D56F7C73F /* Pods */ = {
@@ -1220,21 +1260,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C956C221B762AA00B90842 /* Constants.swift in Sources */,
 				D234E08E21A3D35E00769C12 /* Reusable.swift in Sources */,
 				D234E09021A3D5AF00769C12 /* UserProfileViewController.swift in Sources */,
 				D2C956AB21B75AD400B90842 /* SceneCoordinatorType.swift in Sources */,
 				D2C956A521AB442E00B90842 /* WaterFallLayout.swift in Sources */,
 				D234E09821A3D8B600769C12 /* DiscoverPageViewController.swift in Sources */,
 				D234E08C21A3D23800769C12 /* Application.swift in Sources */,
+				D2C956BC21B7623100B90842 /* UIColor+Extentions.swift in Sources */,
 				D234E09E21A3D93300769C12 /* StudioViewController.swift in Sources */,
 				D234E08321A3D03700769C12 /* ViewModelType.swift in Sources */,
 				D234E09C21A3D92600769C12 /* StudioViewModel.swift in Sources */,
+				D2C956BD21B7623100B90842 /* URL.swift in Sources */,
 				D2C956A821B75A8100B90842 /* SceneCoordinator.swift in Sources */,
+				D2C956BA21B7623100B90842 /* Date+Extentions.swift in Sources */,
+				D2C956BE21B7623100B90842 /* Int+Extentions.swift in Sources */,
 				D2C956AF21B75B9000B90842 /* Scene.swift in Sources */,
 				D234E01121A3BDBB00769C12 /* AppDelegate.swift in Sources */,
 				D234E09A21A3D8CA00769C12 /* DiscoverPageViewModel.swift in Sources */,
+				D2C956B921B7623100B90842 /* String+Extentions.swift in Sources */,
 				D234E09421A3D80700769C12 /* MainFeedViewModel.swift in Sources */,
 				D234E09221A3D5C400769C12 /* UserProfileViewModel.swift in Sources */,
+				D2C956C421B7653600B90842 /* ObservableTypes + Extras.swift in Sources */,
+				D2C956B821B7623100B90842 /* UIView+Extentions.swift in Sources */,
 				D234E09621A3D85800769C12 /* MainFeedViewController.swift in Sources */,
 				D2C956AD21B75B1400B90842 /* SceneTransitionType.swift in Sources */,
 			);
