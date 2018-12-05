@@ -70,6 +70,8 @@
 		D2C956BE21B7623100B90842 /* Int+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956B721B7623100B90842 /* Int+Extentions.swift */; };
 		D2C956C221B762AA00B90842 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C121B762AA00B90842 /* Constants.swift */; };
 		D2C956C421B7653600B90842 /* ObservableTypes + Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C321B7653600B90842 /* ObservableTypes + Extras.swift */; };
+		D2C956C721B765D100B90842 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C621B765D100B90842 /* SignUpViewController.swift */; };
+		D2C956CA21B7660700B90842 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C921B7660700B90842 /* SignUpViewModel.swift */; };
 		F33226647B50A28647326C71 /* Pods_Frames_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784D0A24E22EA5CE09FAF03D /* Pods_Frames_App.framework */; };
 		FC6CEDD09FEFB37168AB527D /* Pods_NetworkPlatformTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */; };
 /* End PBXBuildFile section */
@@ -233,6 +235,8 @@
 		D2C956B721B7623100B90842 /* Int+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extentions.swift"; sourceTree = "<group>"; };
 		D2C956C121B762AA00B90842 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D2C956C321B7653600B90842 /* ObservableTypes + Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableTypes + Extras.swift"; sourceTree = "<group>"; };
+		D2C956C621B765D100B90842 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D2C956C921B7660700B90842 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		E976B25A8E8AA910702EBC93 /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		EC533B672C2AC69F9A931A22 /* Pods_NetworkPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkPlatformTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -460,6 +464,7 @@
 				D234E08821A3D0F700769C12 /* DiscoverPage */,
 				D234E08721A3D0F100769C12 /* MainFeed */,
 				D234E08621A3D0E200769C12 /* UserProfile */,
+				D2C956C821B765D600B90842 /* SignUp */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -621,6 +626,15 @@
 				D2C956C321B7653600B90842 /* ObservableTypes + Extras.swift */,
 			);
 			path = Rx;
+			sourceTree = "<group>";
+		};
+		D2C956C821B765D600B90842 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				D2C956C621B765D100B90842 /* SignUpViewController.swift */,
+				D2C956C921B7660700B90842 /* SignUpViewModel.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		F5A0B05FC687538D56F7C73F /* Pods */ = {
@@ -1273,6 +1287,7 @@
 				D234E09C21A3D92600769C12 /* StudioViewModel.swift in Sources */,
 				D2C956BD21B7623100B90842 /* URL.swift in Sources */,
 				D2C956A821B75A8100B90842 /* SceneCoordinator.swift in Sources */,
+				D2C956CA21B7660700B90842 /* SignUpViewModel.swift in Sources */,
 				D2C956BA21B7623100B90842 /* Date+Extentions.swift in Sources */,
 				D2C956BE21B7623100B90842 /* Int+Extentions.swift in Sources */,
 				D2C956AF21B75B9000B90842 /* Scene.swift in Sources */,
@@ -1284,6 +1299,7 @@
 				D2C956C421B7653600B90842 /* ObservableTypes + Extras.swift in Sources */,
 				D2C956B821B7623100B90842 /* UIView+Extentions.swift in Sources */,
 				D234E09621A3D85800769C12 /* MainFeedViewController.swift in Sources */,
+				D2C956C721B765D100B90842 /* SignUpViewController.swift in Sources */,
 				D2C956AD21B75B1400B90842 /* SceneTransitionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
