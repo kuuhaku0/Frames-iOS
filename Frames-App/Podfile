@@ -35,6 +35,7 @@ target 'Frames-App' do
   rx_cocoa
   # Pods for Frames-App
     pod 'RxSwift'
+    pod 'Action'
 
   target 'Frames-AppTests' do
     inherit! :search_paths

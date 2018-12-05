@@ -601,10 +601,10 @@
 		D2C956A921B75ABB00B90842 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				D2C956AE21B75B9000B90842 /* Scene.swift */,
 				D2C956A721B75A8100B90842 /* SceneCoordinator.swift */,
 				D2C956AA21B75AD400B90842 /* SceneCoordinatorType.swift */,
 				D2C956AC21B75B1400B90842 /* SceneTransitionType.swift */,
-				D2C956AE21B75B9000B90842 /* Scene.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -977,6 +977,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Frames-App/Pods-Frames-App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSAppSync/AWSAppSync.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
@@ -991,6 +992,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAppSync.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",

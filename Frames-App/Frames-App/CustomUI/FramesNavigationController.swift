@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import Action
 import RxSwift
-import RxCocoa
 import NetworkPlatform
 
 class FramesNavigationController: UINavigationController {
     
     private var sceneCoordiantor: SceneCoordinatorType!
+    private let disposeBag = DisposeBag()
+    
+    private lazy var showUserProfile: CocoaAction = {
+        let viewModel = UserProfileViewModel()
+        return CocoaAction { [unowned self] in
+            self.sceneCoordiantor.transition(to: Scene.userProfile(viewModel))
+        }
+    }()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
