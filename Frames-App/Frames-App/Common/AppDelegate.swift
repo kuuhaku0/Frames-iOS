@@ -19,12 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         
         Application.shared.configureMainInterface(in: window)
-    
+        
         self.window = window
         
         // Create AWSMobileClient to connect with AWS
         let databaseURL = URL(fileURLWithPath:NSTemporaryDirectory()).appendingPathComponent("frames-app")
-        
+
         do {
             //AppSync configuration & client initialization
             let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncClientInfo: AWSAppSyncClientInfo(),databaseURL: databaseURL)

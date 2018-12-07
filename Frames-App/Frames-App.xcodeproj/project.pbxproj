@@ -13,8 +13,9 @@
 		ACC1B036B728FC2D2754EF98 /* Pods_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B185D1DB759DD656CC04A18F /* Pods_DomainTests.framework */; };
 		D200462221A6927900CC700E /* CommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200462121A6927900CC700E /* CommentUseCase.swift */; };
 		D200462621A73D5500CC700E /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D200462521A73D5500CC700E /* awsconfiguration.json */; };
+		D21247F921BA4B1A0025AC3F /* FramesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */; };
 		D234E01121A3BDBB00769C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234E01021A3BDBB00769C12 /* AppDelegate.swift */; };
-		D234E01621A3BDBB00769C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D234E01421A3BDBB00769C12 /* Main.storyboard */; };
+		D234E01621A3BDBB00769C12 /* InitialLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D234E01421A3BDBB00769C12 /* InitialLaunchScreen.storyboard */; };
 		D234E01821A3BDBC00769C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D234E01721A3BDBC00769C12 /* Assets.xcassets */; };
 		D234E01B21A3BDBC00769C12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D234E01921A3BDBC00769C12 /* LaunchScreen.storyboard */; };
 		D234E02621A3BDBC00769C12 /* Frames_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234E02521A3BDBC00769C12 /* Frames_AppTests.swift */; };
@@ -73,6 +74,10 @@
 		D2C956C721B765D100B90842 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C621B765D100B90842 /* SignUpViewController.swift */; };
 		D2C956CA21B7660700B90842 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C921B7660700B90842 /* SignUpViewModel.swift */; };
 		D2C956CC21B76C1200B90842 /* FramesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956CB21B76C1200B90842 /* FramesNavigationController.swift */; };
+		D2C956D021B8A9C900B90842 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956CF21B8A9C900B90842 /* LoginViewController.swift */; };
+		D2C956D221B8A9DB00B90842 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956D121B8A9DB00B90842 /* LoginViewModel.swift */; };
+		D2C956D421B8AA2900B90842 /* InitialLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956D321B8AA2900B90842 /* InitialLaunchViewController.swift */; };
+		D2C956D721B8AA4500B90842 /* InitialLaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956D621B8AA4500B90842 /* InitialLaunchViewModel.swift */; };
 		F33226647B50A28647326C71 /* Pods_Frames_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784D0A24E22EA5CE09FAF03D /* Pods_Frames_App.framework */; };
 		FC6CEDD09FEFB37168AB527D /* Pods_NetworkPlatformTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */; };
 /* End PBXBuildFile section */
@@ -172,9 +177,10 @@
 		C8331A9B297CDB5C7361783E /* Pods-NetworkPlatformTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkPlatformTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkPlatformTests/Pods-NetworkPlatformTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D200462121A6927900CC700E /* CommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUseCase.swift; sourceTree = "<group>"; };
 		D200462521A73D5500CC700E /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerView.swift; sourceTree = "<group>"; };
 		D234E00D21A3BDBB00769C12 /* Frames-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Frames-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D234E01021A3BDBB00769C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D234E01521A3BDBB00769C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D234E01521A3BDBB00769C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/InitialLaunchScreen.storyboard; sourceTree = "<group>"; };
 		D234E01721A3BDBC00769C12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D234E01A21A3BDBC00769C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D234E01C21A3BDBC00769C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -239,6 +245,10 @@
 		D2C956C621B765D100B90842 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D2C956C921B7660700B90842 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		D2C956CB21B76C1200B90842 /* FramesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesNavigationController.swift; sourceTree = "<group>"; };
+		D2C956CF21B8A9C900B90842 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D2C956D121B8A9DB00B90842 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D2C956D321B8AA2900B90842 /* InitialLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLaunchViewController.swift; sourceTree = "<group>"; };
+		D2C956D621B8AA4500B90842 /* InitialLaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLaunchViewModel.swift; sourceTree = "<group>"; };
 		E976B25A8E8AA910702EBC93 /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		EC533B672C2AC69F9A931A22 /* Pods_NetworkPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkPlatformTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -389,7 +399,6 @@
 		D234E03E21A3BE1700769C12 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D234E01421A3BDBB00769C12 /* Main.storyboard */,
 				D234E01C21A3BDBC00769C12 /* Info.plist */,
 				D200462521A73D5500CC700E /* awsconfiguration.json */,
 				D234E01721A3BDBC00769C12 /* Assets.xcassets */,
@@ -462,11 +471,13 @@
 		D234E08521A3D09000769C12 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				D2C956D821B8AB2700B90842 /* InitialScreen */,
+				D2C956D521B8AA3100B90842 /* Login */,
+				D2C956C821B765D600B90842 /* SignUp */,
 				D234E08921A3D10F00769C12 /* Studio */,
 				D234E08821A3D0F700769C12 /* DiscoverPage */,
 				D234E08721A3D0F100769C12 /* MainFeed */,
 				D234E08621A3D0E200769C12 /* UserProfile */,
-				D2C956C821B765D600B90842 /* SignUp */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -594,6 +605,7 @@
 			children = (
 				D2C956A421AB442E00B90842 /* WaterFallLayout.swift */,
 				D2C956CB21B76C1200B90842 /* FramesNavigationController.swift */,
+				D2C956DB21B8AFE900B90842 /* FramesImagePickerView */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -638,6 +650,33 @@
 				D2C956C921B7660700B90842 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		D2C956D521B8AA3100B90842 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D2C956D121B8A9DB00B90842 /* LoginViewModel.swift */,
+				D2C956CF21B8A9C900B90842 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D2C956D821B8AB2700B90842 /* InitialScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D234E01421A3BDBB00769C12 /* InitialLaunchScreen.storyboard */,
+				D2C956D321B8AA2900B90842 /* InitialLaunchViewController.swift */,
+				D2C956D621B8AA4500B90842 /* InitialLaunchViewModel.swift */,
+			);
+			path = InitialScreen;
+			sourceTree = "<group>";
+		};
+		D2C956DB21B8AFE900B90842 /* FramesImagePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */,
+			);
+			path = FramesImagePickerView;
 			sourceTree = "<group>";
 		};
 		F5A0B05FC687538D56F7C73F /* Pods */ = {
@@ -894,7 +933,7 @@
 			files = (
 				D234E01B21A3BDBC00769C12 /* LaunchScreen.storyboard in Resources */,
 				D234E01821A3BDBC00769C12 /* Assets.xcassets in Resources */,
-				D234E01621A3BDBB00769C12 /* Main.storyboard in Resources */,
+				D234E01621A3BDBB00769C12 /* InitialLaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1279,6 +1318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C956D421B8AA2900B90842 /* InitialLaunchViewController.swift in Sources */,
 				D2C956C221B762AA00B90842 /* Constants.swift in Sources */,
 				D234E08E21A3D35E00769C12 /* Reusable.swift in Sources */,
 				D234E09021A3D5AF00769C12 /* UserProfileViewController.swift in Sources */,
@@ -1286,6 +1326,7 @@
 				D2C956A521AB442E00B90842 /* WaterFallLayout.swift in Sources */,
 				D234E09821A3D8B600769C12 /* DiscoverPageViewController.swift in Sources */,
 				D234E08C21A3D23800769C12 /* Application.swift in Sources */,
+				D2C956D721B8AA4500B90842 /* InitialLaunchViewModel.swift in Sources */,
 				D2C956BC21B7623100B90842 /* UIColor+Extentions.swift in Sources */,
 				D234E09E21A3D93300769C12 /* StudioViewController.swift in Sources */,
 				D234E08321A3D03700769C12 /* ViewModelType.swift in Sources */,
@@ -1296,8 +1337,11 @@
 				D2C956BA21B7623100B90842 /* Date+Extentions.swift in Sources */,
 				D2C956BE21B7623100B90842 /* Int+Extentions.swift in Sources */,
 				D2C956AF21B75B9000B90842 /* Scene.swift in Sources */,
+				D2C956D221B8A9DB00B90842 /* LoginViewModel.swift in Sources */,
 				D234E01121A3BDBB00769C12 /* AppDelegate.swift in Sources */,
+				D2C956D021B8A9C900B90842 /* LoginViewController.swift in Sources */,
 				D234E09A21A3D8CA00769C12 /* DiscoverPageViewModel.swift in Sources */,
+				D21247F921BA4B1A0025AC3F /* FramesPickerView.swift in Sources */,
 				D2C956B921B7623100B90842 /* String+Extentions.swift in Sources */,
 				D234E09421A3D80700769C12 /* MainFeedViewModel.swift in Sources */,
 				D234E09221A3D5C400769C12 /* UserProfileViewModel.swift in Sources */,
@@ -1418,12 +1462,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D234E01421A3BDBB00769C12 /* Main.storyboard */ = {
+		D234E01421A3BDBB00769C12 /* InitialLaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D234E01521A3BDBB00769C12 /* Base */,
 			);
-			name = Main.storyboard;
+			name = InitialLaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		D234E01921A3BDBC00769C12 /* LaunchScreen.storyboard */ = {

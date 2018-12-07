@@ -20,7 +20,7 @@ final class Application {
     }
     
     func configureMainInterface(in window: UIWindow) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "InitialLaunchScreen", bundle: nil)
         
         let mainFeedNavigationController = UINavigationController()
 
@@ -28,6 +28,9 @@ final class Application {
         tabBarController.viewControllers = [
             mainFeedNavigationController
         ]
-        window.rootViewController = tabBarController
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "InitialLaunchViewController")
+        vc.view.backgroundColor = .white
+        window.rootViewController = vc
     }
 }

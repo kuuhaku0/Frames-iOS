@@ -13,7 +13,7 @@ protocol TargetScene {
 }
 
 enum Scene {
-//    case login
+    case login(LoginViewModel)
 //    case signUp(SignUpViewModel)
 //    case mainFeed(MainFeedViewModel)
 //    case discoverPage(DiscoverPageViewModel)
@@ -30,6 +30,10 @@ extension Scene: TargetScene {
         switch self {
         case let .userProfile(viewModel):
             let vc = UserProfileViewController()
+            vc.viewModel = viewModel
+            return .present(vc)
+        case let .login(viewModel):
+            let vc = LoginViewController()
             vc.viewModel = viewModel
             return .present(vc)
         }
