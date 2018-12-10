@@ -13,15 +13,10 @@ public class FramesButton: UIButton {
     
     public var titleText: String = "" {
         didSet {
-            self.titleLabel?.attributedText = NSAttributedString(string: titleText,
-                                                                 attributes: [NSAttributedString.Key.font: Constants.Fonts.buttonFont,
-                                                                              NSAttributedString.Key.foregroundColor: Constants.framesButtonTextColor])
+            setAttributedTitle(NSAttributedString(string: titleText,
+                                                  attributes: [NSAttributedString.Key.font: Constants.Fonts.buttonFont,
+                                                               NSAttributedString.Key.foregroundColor: Constants.framesButtonTextColor]), for: .normal)
         }
-    }
-    
-    init(titleText: String) {
-        self.init()
-        self.titleText = titleText
     }
 
     override init(frame: CGRect) {

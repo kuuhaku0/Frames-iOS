@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2t1-4Y-GME" customClass="FramesImagePickerView" customModule="Frames_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2t1-4Y-GME" customClass="FramesPickerView" customModule="Frames_App" customModuleProvider="target">
                                 <rect key="frame" x="15" y="417" width="345" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -33,19 +33,26 @@
                                     <constraint firstAttribute="width" constant="90" id="jnB-SW-J9J"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOc-79-SWe" customClass="FramesButton" customModule="Frames_App" customModuleProvider="target">
+                                <rect key="frame" x="15" y="237" width="345" height="45"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2t1-4Y-GME" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="8vQ-kS-NLu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2t1-4Y-GME" secondAttribute="trailing" constant="15" id="K5X-Ug-gG4"/>
                             <constraint firstItem="2t1-4Y-GME" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MBZ-Ap-2dV"/>
+                            <constraint firstItem="VOc-79-SWe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OCv-8c-5sz"/>
                             <constraint firstItem="qNF-Dr-4Gg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="e6D-VU-Ygh"/>
                             <constraint firstItem="qNF-Dr-4Gg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rGb-5i-SzF"/>
+                            <constraint firstItem="qNF-Dr-4Gg" firstAttribute="top" secondItem="VOc-79-SWe" secondAttribute="bottom" constant="36.5" id="twI-4c-URE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2t1-4Y-GME" secondAttribute="bottom" constant="180" id="xDT-m6-DWP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="framesButton" destination="VOc-79-SWe" id="tq4-Ui-AC9"/>
                         <outlet property="pickerView" destination="2t1-4Y-GME" id="csu-9U-oof"/>
                         <outlet property="segmentControl" destination="qNF-Dr-4Gg" id="Cds-cT-kXI"/>
                     </connections>
