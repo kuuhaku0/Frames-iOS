@@ -25,18 +25,29 @@
                                     <constraint firstAttribute="height" constant="70" id="LS4-ec-4em"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNF-Dr-4Gg" customClass="SegmentControl" customModule="Frames_App" customModuleProvider="target">
+                                <rect key="frame" x="142.5" y="318.5" width="90" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KUl-4f-bCu"/>
+                                    <constraint firstAttribute="width" constant="90" id="jnB-SW-J9J"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2t1-4Y-GME" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="8vQ-kS-NLu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2t1-4Y-GME" secondAttribute="trailing" constant="15" id="K5X-Ug-gG4"/>
                             <constraint firstItem="2t1-4Y-GME" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MBZ-Ap-2dV"/>
+                            <constraint firstItem="qNF-Dr-4Gg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="e6D-VU-Ygh"/>
+                            <constraint firstItem="qNF-Dr-4Gg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rGb-5i-SzF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2t1-4Y-GME" secondAttribute="bottom" constant="180" id="xDT-m6-DWP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="pickerView" destination="2t1-4Y-GME" id="csu-9U-oof"/>
+                        <outlet property="segmentControl" destination="qNF-Dr-4Gg" id="Cds-cT-kXI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

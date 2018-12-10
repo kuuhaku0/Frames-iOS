@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 public class FramesButton: UIButton {
     
     public var titleText: String = "" {
@@ -40,7 +41,6 @@ public class FramesButton: UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([self.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 30),
                                      self.heightAnchor.constraint(equalToConstant: Constants.framesButtonHeight)])
-        
     }
     
 }

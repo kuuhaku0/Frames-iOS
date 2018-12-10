@@ -17,8 +17,8 @@ public protocol FramesSegmentControlDelegate: AnyObject {
 struct Palette {
     static let defaultTextColor = Palette.colorFromRGB(9, green: 26, blue: 51, alpha: 0.4)
     static let highlightTextColor = UIColor.white
-    static let segmentedControlBackgroundColor = Palette.colorFromRGB(237, green: 242, blue: 247, alpha: 0.7)
-    static let sliderColor = Palette.colorFromRGB(44, green: 131, blue: 255)
+    static let segmentedControlBackgroundColor = Palette.colorFromRGB(221, green: 221, blue: 221, alpha: 1)
+    static let sliderColor = UIColor.white
     
     static func colorFromRGB(_ red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1.0) -> UIColor {
         func amount(_ amount: CGFloat, with alpha: CGFloat) -> CGFloat {
@@ -34,10 +34,10 @@ struct Palette {
 
 extension UIView {
     func addShadow(with color: UIColor) {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowRadius = 5
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowRadius = 4
         layer.shadowOpacity = 1
-        layer.shadowOffset = CGSize(width: 1, height: 1)
+        layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     
     func removeShadow() {
@@ -46,15 +46,6 @@ extension UIView {
 }
 
 public class SegmentControl: UIControl {
-    
-    public static let height: CGFloat = Constants.height + Constants.topBottomMargin * 2
-    
-    private struct Constants {
-        static let height: CGFloat = 40
-        static let topBottomMargin: CGFloat = 0
-        static let leadingTrailingMargin: CGFloat = 0
-    }
-    
     
     class SliderView: UIView {
         // MARK: - Properties
@@ -85,52 +76,76 @@ public class SegmentControl: UIControl {
         private func setup() {
             layer.masksToBounds = true
             sliderMaskView.backgroundColor = .white
-            sliderMaskView.addShadow(with: .black)
+            sliderMaskView.cornerRadius = 2
         }
     }
     
-    private var correction: CGFloat = 0
+    public static let height: CGFloat = Constants.height + Constants.topBottomMargin * 2
+    
+    private struct Constants {
+        static let height: CGFloat = 30
+        static let topBottomMargin: CGFloat = 0
+        static let leadingTrailingMargin: CGFloat = 0
+    }
     
     open weak var delegate: FramesSegmentControlDelegate?
     
     private(set) open var selectedSegmentIndex: Int = 0
-    
     private var segments: [UIImage] = []
-    
     private var numberOfSegments: Int {
         return segments.count
     }
     
-    let offset: CGFloat = 5
+    private var correction: CGFloat = 0
+    private let offset: CGFloat = 5
     
     private var segmentWidth: CGFloat {
-        return (self.backgroundView.frame.width) / CGFloat(numberOfSegments)
+        return (self.segmentControlBackgroundView.frame.width) / CGFloat(numberOfSegments)
     }
     
     private lazy var containerView: UIView = UIView()
-    private lazy var backgroundView: UIView = UIView()
-    private lazy var selectedContainerView: UIView = UIView()
-    private lazy var sliderView: SliderView = SliderView()
+    private lazy var segmentControlBackgroundView: UIView = UIView()
     
-    open var segmentsBackgroundColor: UIColor = Palette.segmentedControlBackgroundColor {
+    // Selection Slider
+    private lazy var selectionSliderShadowView: UIView = UIView()
+    private lazy var selectionSliderItemContainerView: UIView = UIView()
+    private lazy var selectionSliderView: SliderView = SliderView()
+    
+    private var segmentImageView: UIImageView?
+    private var selectedImageView: UIImageView?
+    
+    //Mark: - Open Configurations
+    /// Background color of segmented control
+    open var segmentControlBackgroundColor: UIColor = Palette.segmentedControlBackgroundColor {
         didSet {
-            backgroundView.backgroundColor = segmentsBackgroundColor
+            segmentControlBackgroundView.backgroundColor = segmentControlBackgroundColor
         }
     }
     
+    /// Background color for selection slider
     open var sliderBackgroundColor: UIColor = Palette.sliderColor {
         didSet {
-            selectedContainerView.backgroundColor = sliderBackgroundColor
-            if !isSliderShadowHidden { selectedContainerView.addShadow(with: sliderBackgroundColor) }
+            selectionSliderShadowView.backgroundColor = sliderBackgroundColor
+            if !isSliderShadowHidden { selectionSliderShadowView.addShadow(with: sliderBackgroundColor) }
         }
     }
     
+    /// Hides and unhides shadow for selection slider
     open var isSliderShadowHidden: Bool = false {
         didSet {
             updateShadow(with: .black, hidden: isSliderShadowHidden)
         }
     }
     
+    open var segmentCornerRadius: Double = 2 {
+        didSet {
+            cornerRadius = segmentCornerRadius
+            segmentControlBackgroundView.cornerRadius = segmentCornerRadius
+            containerView.cornerRadius = segmentCornerRadius
+        }
+    }
+    
+    // MARK: - Initializers
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -143,14 +158,40 @@ public class SegmentControl: UIControl {
     
     private func setup() {
         addSubview(containerView)
-        containerView.addSubview(backgroundView)
-        containerView.addSubview(selectedContainerView)
-        containerView.addSubview(sliderView)
+        containerView.addSubview(segmentControlBackgroundView)
+        containerView.addSubview(selectionSliderShadowView)
+        containerView.addSubview(selectionSliderItemContainerView)
+        containerView.addSubview(selectionSliderView)
         
-        selectedContainerView.layer.mask = sliderView.sliderMaskView.layer
+        selectionSliderItemContainerView.layer.mask = selectionSliderView.sliderMaskView.layer
         addTapGesture()
         addDragGesture()
         self.clipsToBounds = false
+    }
+    
+    private func configureViews() {
+        self.layer.cornerRadius = CGFloat(segmentCornerRadius)
+        containerView.frame = CGRect(x: Constants.leadingTrailingMargin,
+                                     y: Constants.topBottomMargin,
+                                     width: bounds.width - Constants.leadingTrailingMargin * 2,
+                                     height: Constants.height)
+        let frame = containerView.bounds
+        segmentControlBackgroundView.frame = frame
+        selectionSliderItemContainerView.frame = frame
+        selectionSliderShadowView.frame = CGRect(x: 0, y: 0, width: segmentWidth, height: segmentControlBackgroundView.frame.height)
+        selectionSliderView.frame = CGRect(x: 0, y: 0, width: segmentWidth, height: segmentControlBackgroundView.frame.height)
+        
+        [segmentControlBackgroundView, selectionSliderShadowView, selectionSliderItemContainerView].forEach { $0.layer.cornerRadius = CGFloat(segmentCornerRadius) }
+        selectionSliderView.cornerRadius = segmentCornerRadius
+        
+        backgroundColor = .clear
+        segmentControlBackgroundView.backgroundColor = segmentControlBackgroundColor
+        selectionSliderItemContainerView.backgroundColor = .clear
+        selectionSliderShadowView.backgroundColor = sliderBackgroundColor
+        
+        if !isSliderShadowHidden {
+            selectionSliderShadowView.addShadow(with: sliderBackgroundColor)
+        }
     }
     
     open func setSegmentItems(_ segments: [UIImage]) {
@@ -161,68 +202,47 @@ public class SegmentControl: UIControl {
         
         for (index, image) in segments.enumerated() {
             let baseImageView = createImageView(with: image, at: index, selected: false)
-            baseImageView.tintColor = Palette.colorFromRGB(100, green: 100, blue: 100)
             let selectedImageView = createImageView(with: image, at: index, selected: true)
-            selectedImageView.tintColor = UIColor.black
-            selectedImageView.addShadow(with: .black)
-            baseImageView.removeShadow()
-            backgroundView.addSubview(baseImageView)
-            backgroundView.backgroundColor = .clear
-            selectedContainerView.addSubview(selectedImageView)
+            segmentControlBackgroundView.addSubview(baseImageView)
+            selectionSliderItemContainerView.addSubview(selectedImageView)
         }
-        
         setupAutoresizingMasks()
+    }
+    
+    private func createImageView(with image: UIImage, at index: Int, selected: Bool) -> UIImageView {
+        let rect = CGRect(x: CGFloat(index) * segmentWidth + offset,
+                          y: (segmentControlBackgroundView.bounds.height - segmentWidth) / 2,
+                          width: segmentWidth - offset * 2,
+                          height: segmentWidth - offset * 2)
+        
+        let imageView = UIImageView(frame: rect)
+        imageView.center.y = containerView.center.y
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = image
+        imageView.clipsToBounds = true
+        imageView.tintColor = selected ?
+            UIColor.black:
+            Palette.colorFromRGB(153, green: 153, blue: 153)
+        imageView.cornerRadius = segmentCornerRadius
+        imageView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleWidth]
+        return imageView
     }
     
     private func setupAutoresizingMasks() {
         containerView.autoresizingMask = [.flexibleWidth]
-        backgroundView.autoresizingMask = [.flexibleWidth]
-        selectedContainerView.autoresizingMask = [.flexibleWidth]
-        sliderView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleWidth]
+        segmentControlBackgroundView.autoresizingMask = [.flexibleWidth]
+        selectionSliderShadowView.autoresizingMask = [.flexibleWidth]
+        selectionSliderView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleWidth]
     }
     
     private func updateShadow(with color: UIColor, hidden: Bool) {
         if hidden {
-            selectedContainerView.removeShadow()
-            sliderView.sliderMaskView.removeShadow()
+            selectionSliderShadowView.removeShadow()
+            selectionSliderView.sliderMaskView.removeShadow()
         } else {
-            selectedContainerView.addShadow(with: sliderBackgroundColor)
-            sliderView.sliderMaskView.addShadow(with: .black)
+            selectionSliderShadowView.addShadow(with: sliderBackgroundColor)
+            selectionSliderView.sliderMaskView.addShadow(with: .black)
         }
-    }
-    
-    private func configureViews() {
-        self.layer.cornerRadius = CGFloat(self.cornerRadius)
-        containerView.frame = CGRect(x: Constants.leadingTrailingMargin,
-                                     y: Constants.topBottomMargin,
-                                     width: bounds.width - Constants.leadingTrailingMargin * 2,
-                                     height: Constants.height)
-        let frame = containerView.bounds
-        backgroundView.frame = frame
-        selectedContainerView.frame = frame
-        sliderView.frame = CGRect(x: 0, y: 0, width: segmentWidth, height: backgroundView.frame.height)
-        
-        [backgroundView, selectedContainerView].forEach { $0.layer.cornerRadius = CGFloat(cornerRadius) }
-        sliderView.cornerRadius = cornerRadius
-        
-        backgroundColor = .white
-        backgroundView.backgroundColor = segmentsBackgroundColor
-        selectedContainerView.backgroundColor = sliderBackgroundColor
-        
-        if !isSliderShadowHidden {
-            selectedContainerView.addShadow(with: sliderBackgroundColor)
-        }
-    }
-    
-    private func createImageView(with image: UIImage, at index: Int, selected: Bool) -> UIImageView {
-        let rect = CGRect(x: CGFloat(index) * segmentWidth + offset, y: (backgroundView.bounds.height - segmentWidth) / 2, width: segmentWidth - offset * 2, height: segmentWidth - offset * 2)
-        let imageView = UIImageView(frame: rect)
-        imageView.center.y = containerView.center.y
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = image
-        imageView.clipsToBounds = true
-        imageView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleWidth]
-        return imageView
     }
     
     // MARK: - Gestures
@@ -233,22 +253,38 @@ public class SegmentControl: UIControl {
     
     private func addDragGesture() {
         let drag = UIPanGestureRecognizer(target: self, action: #selector(didPan))
-        sliderView.addGestureRecognizer(drag)
+        selectionSliderView.addGestureRecognizer(drag)
     }
     
     @objc private func didTap(tapGesture: UITapGestureRecognizer) {
         moveToNearestPoint(basedOn: tapGesture)
     }
     
+    // TODO: - Make selectedSegmentView stay in bounds of containerView and still feel smooth
     @objc private func didPan(panGesture: UIPanGestureRecognizer) {
+        let location = panGesture.location(in: self)
+        let xPos = location.x - correction
+        
         switch panGesture.state {
         case .cancelled, .ended, .failed:
-            moveToNearestPoint(basedOn: panGesture, velocity: panGesture.velocity(in: sliderView))
+            moveToNearestPoint(basedOn: panGesture, velocity: panGesture.velocity(in: selectionSliderView))
         case .began:
-            correction = panGesture.location(in: sliderView).x - sliderView.frame.width/2
+            if xPos < 0 {
+                selectionSliderView.center.x = 0
+                selectionSliderShadowView.center.x = xPos
+                
+            } else if xPos > containerView.bounds.maxX {
+                selectionSliderView.center.x = containerView.bounds.maxX - selectionSliderView.frame.width / 2
+                selectionSliderShadowView.center.x = xPos
+                
+            }
+            correction = panGesture.location(in: selectionSliderView).x - selectionSliderView.bounds.width/2
         case .changed:
-            let location = panGesture.location(in: self)
-            sliderView.center.x = location.x - correction
+            guard panGesture.location(in: self).x - correction >= containerView.bounds.minX,
+                panGesture.location(in: self).x - correction <= containerView.bounds.maxX else {return}
+            selectionSliderView.center.x = xPos
+            selectionSliderShadowView.center.x = xPos
+            
         case .possible: ()
         }
     }
@@ -272,20 +308,21 @@ public class SegmentControl: UIControl {
     }
     
     private func segmentIndex(for point: CGPoint) -> Int {
-        var index = Int(point.x / sliderView.frame.width)
+        var index = Int(point.x / selectionSliderView.frame.width)
         if index < 0 { index = 0 }
         if index > numberOfSegments - 1 { index = numberOfSegments - 1 }
         return index
     }
     
     private func center(at index: Int) -> CGFloat {
-        let xOffset = CGFloat(index) * sliderView.frame.width + sliderView.frame.width / 2
+        let xOffset = CGFloat(index) * selectionSliderView.frame.width + selectionSliderView.frame.width / 2
         return xOffset
     }
     
     private func animate(to position: CGFloat) {
         UIView.animate(withDuration: 0.2) {
-            self.sliderView.center.x = position
+            self.selectionSliderView.center.x = position
+            self.selectionSliderShadowView.center.x = position
         }
     }
 }
