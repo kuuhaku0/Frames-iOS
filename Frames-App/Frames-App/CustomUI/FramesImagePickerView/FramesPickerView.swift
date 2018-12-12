@@ -18,6 +18,7 @@ protocol FramesPickerViewDataSource: AnyObject {
     func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage
 }
 
+@IBDesignable
 class FramesPickerView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Properties
@@ -35,6 +36,7 @@ class FramesPickerView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         cv.dataSource = self
         cv.showsHorizontalScrollIndicator = false
         cv.backgroundColor = .clear
+        cv.bounces = false
         return cv
     }()
     
@@ -59,15 +61,30 @@ class FramesPickerView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     // MARK: -
-    func configure() {
+    private func configure() {
         addSubview(collectionView)
         addSubview(selector)
     }
     
-    func findCenterIndex() -> IndexPath? {
+    private func findCenterIndex() -> IndexPath? {
         let center = convert(collectionView.center, to: collectionView)
         let index = collectionView.indexPathForItem(at: center)
         return index
+    }
+    
+    public func scrollToLastItem() {
+        let speed: CGFloat = 8
+        let co = collectionView.contentOffset.x
+        let no = co + speed
+        let cellWidth: CGFloat = 50
+        UIView.animate(withDuration: 0.0015, delay: 0, options: .curveEaseIn, animations: { [weak self] in
+            self?.collectionView.contentOffset = CGPoint(x: no, y: 0)
+            }, completion: { [weak self] (complete) in
+                guard let self = self else { return }
+                // This expression isnt 100% 
+                if co >= self.collectionView.contentSize.width / 2 - cellWidth - speed * 2.5 { return }
+                self.scrollToLastItem()
+        })
     }
     
     // MARK: - Delegate & DataSource Methods
@@ -75,7 +92,7 @@ class FramesPickerView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         guard let selectedItem = findCenterIndex()?.row else { return }
         delegate?.framesPickerView(self, didSelectItem: selectedItem)
     }
-    
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let index = findCenterIndex() else { return }
         collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)

@@ -63,6 +63,7 @@
 		D234E0EE21A6767A00769C12 /* CommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234E0ED21A6767A00769C12 /* CommentUseCase.swift */; };
 		D234E0F021A6824200769C12 /* Comment+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234E0EF21A6824200769C12 /* Comment+Mapping.swift */; };
 		D234E0F221A6835C00769C12 /* CommentNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234E0F121A6835C00769C12 /* CommentNetwork.swift */; };
+		D2A72C9121BF47F600464DAF /* FramesTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A72C9021BF47F600464DAF /* FramesTextField.swift */; };
 		D2C956A521AB442E00B90842 /* WaterFallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956A421AB442E00B90842 /* WaterFallLayout.swift */; };
 		D2C956A821B75A8100B90842 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956A721B75A8100B90842 /* SceneCoordinator.swift */; };
 		D2C956AB21B75AD400B90842 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956AA21B75AD400B90842 /* SceneCoordinatorType.swift */; };
@@ -239,6 +240,7 @@
 		D234E0ED21A6767A00769C12 /* CommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUseCase.swift; sourceTree = "<group>"; };
 		D234E0EF21A6824200769C12 /* Comment+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+Mapping.swift"; sourceTree = "<group>"; };
 		D234E0F121A6835C00769C12 /* CommentNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentNetwork.swift; sourceTree = "<group>"; };
+		D2A72C9021BF47F600464DAF /* FramesTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesTextField.swift; sourceTree = "<group>"; };
 		D2C956A421AB442E00B90842 /* WaterFallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallLayout.swift; sourceTree = "<group>"; };
 		D2C956A721B75A8100B90842 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		D2C956AA21B75AD400B90842 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 				D2C956DB21B8AFE900B90842 /* FramesImagePickerView */,
 				D21247FE21BB57B20025AC3F /* FramesSegmentedControl.swift */,
 				D212480021BB5A2A0025AC3F /* FramesButton.swift */,
+				D2A72C9021BF47F600464DAF /* FramesTextField.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -1347,6 +1350,7 @@
 				D234E08321A3D03700769C12 /* ViewModelType.swift in Sources */,
 				D234E09C21A3D92600769C12 /* StudioViewModel.swift in Sources */,
 				D2C956BD21B7623100B90842 /* URL.swift in Sources */,
+				D2A72C9121BF47F600464DAF /* FramesTextField.swift in Sources */,
 				D21247FD21BB4EF90025AC3F /* FramesPickerViewLayout.swift in Sources */,
 				D2C956A821B75A8100B90842 /* SceneCoordinator.swift in Sources */,
 				D2C956CA21B7660700B90842 /* SignUpViewModel.swift in Sources */,

@@ -8,35 +8,36 @@
 
 import UIKit
 
-class InitialLaunchViewController: UIViewController, FramesSegmentControlDelegate, UIScrollViewDelegate {
+class InitialLaunchViewController: UIViewController {
     
-    @IBOutlet weak var pickerView: FramesPickerView!
-    @IBOutlet weak var segmentControl: SegmentControl!
-    @IBOutlet weak var framesButton: FramesButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var framesImagePicker: FramesPickerView!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: FramesButton!
     
-    let images: [UIImage] = [UIImage(named: "a")!,
-                             UIImage(named: "b")!,
-                             UIImage(named: "c")!,
-                             UIImage(named: "d")!,
-                             UIImage(named: "e")!,
-                             UIImage(named: "f")!,
-                             UIImage(named: "g")!]
-    
-    let segments = [UIImage(named: "box")!, UIImage(named: "play")!, UIImage(named: "grid")!]
+    let images: [UIImage] = [UIImage(imageLiteralResourceName: "Logo"),
+                             UIImage(imageLiteralResourceName: "Logo2"),
+                             UIImage(imageLiteralResourceName: "Logo3"),
+                             UIImage(imageLiteralResourceName: "Logo4"),
+                             UIImage(imageLiteralResourceName: "Logo5"),
+                             UIImage(imageLiteralResourceName: "Logo6"),
+                             UIImage(imageLiteralResourceName: "Logo7")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        segmentControl.delegate = self
-        segmentControl.setSegmentItems(segments)
-        
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        
-        framesButton.titleText = "Get Started"
+        imageView.image = images.last
+        framesImagePicker.delegate = self
+        framesImagePicker.dataSource = self
+        perform(#selector(scrollTo), with: nil, afterDelay: TimeInterval(0.5))
     }
     
-    func segmentControl(_ segmentControl: SegmentControl, didSelectSegment index: Int) {
-        print(index)
+    @objc func scrollTo() {
+        framesImagePicker.isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseInOut, animations: {
+            self.framesImagePicker.scrollToLastItem()
+        }, completion: { (finished) in
+            self.framesImagePicker.isUserInteractionEnabled = finished
+        })
     }
 }
 
@@ -47,11 +48,11 @@ extension InitialLaunchViewController: FramesPickerViewDelegate, FramesPickerVie
     }
     
     func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
-        return images[item]
+        return images.reversed()[item]
     }
     
     func framesPickerView(_ pickerView: FramesPickerView, didSelectItem item: Int) {
-        print(item)
+        imageView.image = images.reversed()[item]
     }
     
     func framesPickerView(_ pickerView: FramesPickerView, sizeForItem: Int) -> CGSize {

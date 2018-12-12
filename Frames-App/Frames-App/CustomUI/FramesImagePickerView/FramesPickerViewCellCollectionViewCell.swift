@@ -18,7 +18,7 @@ public class FramesPickerViewCell: UICollectionViewCell {
     }()
     
     lazy var label: UILabel = {
-        let lb = UILabel()
+        let lb = UILabel(frame: CGRect(x: center.x, y: center.y, width: 0, height: 0))
         lb.numberOfLines = 0
         lb.textAlignment = .center
         lb.translatesAutoresizingMaskIntoConstraints = false
@@ -42,10 +42,5 @@ public class FramesPickerViewCell: UICollectionViewCell {
     func configure() {
         contentView.addSubview(imageView)
         contentView.addSubview(label)
-        NSLayoutConstraint.activate([label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                                     label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                                     label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-                                     label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 5)])
-        
     }
 }

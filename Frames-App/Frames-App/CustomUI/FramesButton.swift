@@ -9,9 +9,9 @@
 import UIKit
 
 @IBDesignable
-public class FramesButton: UIButton {
+class FramesButton: UIButton {
     
-    public var titleText: String = "" {
+    @IBInspectable public var titleText: String = "" {
         didSet {
             setAttributedTitle(NSAttributedString(string: titleText,
                                                   attributes: [NSAttributedString.Key.font: Constants.Fonts.buttonFont,

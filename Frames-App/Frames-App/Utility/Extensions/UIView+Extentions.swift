@@ -59,3 +59,17 @@ extension UIView {
         clipsToBounds = true
     }
 }
+
+extension UILabel {
+    var hasNoText: Bool {
+        return text == nil || text == ""
+    }
+    
+    var boundsHeight: CGFloat {
+        return bounds.height
+    }
+    
+    var boundsWidth: CGFloat {
+        return bounds.width
+    }
+}
