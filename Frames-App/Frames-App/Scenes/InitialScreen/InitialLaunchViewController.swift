@@ -38,10 +38,11 @@ class InitialLaunchViewController: UIViewController {
     }
     
     private func setup() {
-        captionLabel.isHidden = false
-        captionLabel.alpha = 0
         captionLabel.isHidden = true
+        captionLabel.alpha = 0
+
         imageView.image = viewModel.images.last
+        
         framesImagePicker.delegate = self
         framesImagePicker.dataSource = self
     }
@@ -64,6 +65,7 @@ class InitialLaunchViewController: UIViewController {
     }
     
     @objc func scrollTo() {
+        captionLabel.isHidden = false
         framesImagePicker.isUserInteractionEnabled = false
         UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseInOut, animations: { [weak self] in
             self?.framesImagePicker.scrollToLastItem()
