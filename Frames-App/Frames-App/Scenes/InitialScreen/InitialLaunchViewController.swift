@@ -24,6 +24,7 @@ class InitialLaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         bindViewModel()
         perform(#selector(scrollTo), with: nil, afterDelay: TimeInterval(0.5))
 
@@ -31,12 +32,14 @@ class InitialLaunchViewController: UIViewController {
             .asObservable()
             .subscribe { (index) in
                 guard let index = index.element else { return }
-                self.imageView.image = self.viewModel.images[index]
+                self.imageView.image = self.viewModel.images.reversed()[index]
             }
             .disposed(by: disposeBag)
     }
     
     private func setup() {
+        captionLabel.isHidden = false
+        captionLabel.alpha = 0
         captionLabel.isHidden = true
         imageView.image = viewModel.images.last
         framesImagePicker.delegate = self
@@ -61,8 +64,6 @@ class InitialLaunchViewController: UIViewController {
     }
     
     @objc func scrollTo() {
-        captionLabel.isHidden = false
-        captionLabel.alpha = 0
         framesImagePicker.isUserInteractionEnabled = false
         UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseInOut, animations: { [weak self] in
             self?.framesImagePicker.scrollToLastItem()
