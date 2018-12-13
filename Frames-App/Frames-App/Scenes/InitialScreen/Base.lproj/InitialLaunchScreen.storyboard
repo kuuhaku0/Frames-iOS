@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTj-cF-iqY">
-                                <rect key="frame" x="183.66666666666666" y="802" width="47" height="30"/>
+                                <rect key="frame" x="183.66666666666666" y="797" width="47" height="30"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -30,20 +30,21 @@
                                     <constraint firstAttribute="width" secondItem="ne2-vN-2IW" secondAttribute="height" id="451-mA-KJr"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your experience one frame at a time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abG-ZS-EOn">
-                                <rect key="frame" x="38" y="482.33333333333331" width="338" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your experiences one frame at a time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abG-ZS-EOn">
+                                <rect key="frame" x="38" y="482.33333333333331" width="338" height="19.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeB-pM-ZZP" customClass="FramesPickerView" customModule="Frames_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="529.33333333333337" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="531.66666666666663" width="414" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Ppr-nG-IyK"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6S-Yu-5La" customClass="FramesButton" customModule="Frames_App" customModuleProvider="target">
-                                <rect key="frame" x="184" y="752" width="46" height="30"/>
+                                <rect key="frame" x="184" y="747" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Create an Account"/>
@@ -62,7 +63,7 @@
                             <constraint firstItem="ne2-vN-2IW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="SFe-E2-1Kd"/>
                             <constraint firstItem="abG-ZS-EOn" firstAttribute="top" secondItem="ne2-vN-2IW" secondAttribute="bottom" constant="15" id="UiR-0i-Njb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ne2-vN-2IW" secondAttribute="trailing" constant="38" id="VqI-bO-xM5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tTj-cF-iqY" secondAttribute="bottom" constant="30" id="bN5-LF-BgW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tTj-cF-iqY" secondAttribute="bottom" constant="35" id="bN5-LF-BgW"/>
                             <constraint firstItem="tTj-cF-iqY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dwY-lW-Exn"/>
                             <constraint firstItem="zeB-pM-ZZP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lAz-gX-lGI"/>
                             <constraint firstItem="tTj-cF-iqY" firstAttribute="top" secondItem="x6S-Yu-5La" secondAttribute="bottom" constant="20" id="rzM-xj-NwT"/>
@@ -70,6 +71,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="captionLabel" destination="abG-ZS-EOn" id="EDL-Oq-6df"/>
                         <outlet property="framesImagePicker" destination="zeB-pM-ZZP" id="hZI-30-eiL"/>
                         <outlet property="imageView" destination="ne2-vN-2IW" id="PN2-y4-dh7"/>
                         <outlet property="signInButton" destination="tTj-cF-iqY" id="0My-Ca-JAf"/>
@@ -78,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
+            <point key="canvasLocation" x="52.173913043478265" y="26.116071428571427"/>
         </scene>
     </scenes>
 </document>

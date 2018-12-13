@@ -12,16 +12,10 @@ import NetworkPlatform
 
 class FramesNavigationController: UINavigationController {
     
-    private var sceneCoordiantor: SceneCoordinatorType!
     private let disposeBag = DisposeBag()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    init(rootViewController: UIViewController, sceneCoordiantor: SceneCoordinatorType = SceneCoordinator.shared) {
-        super.init(rootViewController: rootViewController)
-        self.sceneCoordiantor = sceneCoordiantor
     }
     
     required init?(coder aDecoder: NSCoder) {

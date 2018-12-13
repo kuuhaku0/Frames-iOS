@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class InitialLaunchViewController: UIViewController {
     
@@ -14,29 +16,61 @@ class InitialLaunchViewController: UIViewController {
     @IBOutlet weak var framesImagePicker: FramesPickerView!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpButton: FramesButton!
+    @IBOutlet weak var captionLabel: UILabel!
     
-    let images: [UIImage] = [UIImage(imageLiteralResourceName: "Logo"),
-                             UIImage(imageLiteralResourceName: "Logo2"),
-                             UIImage(imageLiteralResourceName: "Logo3"),
-                             UIImage(imageLiteralResourceName: "Logo4"),
-                             UIImage(imageLiteralResourceName: "Logo5"),
-                             UIImage(imageLiteralResourceName: "Logo6"),
-                             UIImage(imageLiteralResourceName: "Logo7")]
+    private let disposeBag = DisposeBag()
+    
+    var viewModel: InitialLaunchViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = images.last
+        bindViewModel()
+        perform(#selector(scrollTo), with: nil, afterDelay: TimeInterval(0.5))
+
+        framesImagePicker.rx.didSelectItem
+            .asObservable()
+            .subscribe { (index) in
+                guard let index = index.element else { return }
+                self.imageView.image = self.viewModel.images[index]
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func setup() {
+        captionLabel.isHidden = true
+        imageView.image = viewModel.images.last
         framesImagePicker.delegate = self
         framesImagePicker.dataSource = self
-        perform(#selector(scrollTo), with: nil, afterDelay: TimeInterval(0.5))
+    }
+    
+    private func bindViewModel() {
+        assert(viewModel != nil)
+        let input = InitialLaunchViewModel.Input(signUpTigger: signUpButton.rx.tap.asDriver(),
+                                                 signInTrigger: signInButton.rx.tap.asDriver())
+        
+        let output = viewModel.transform(input: input)
+        
+        output.signIn
+            .drive()
+            .disposed(by: disposeBag)
+        
+        output.signUp
+            .drive()
+            .disposed(by: disposeBag)
+        
     }
     
     @objc func scrollTo() {
+        captionLabel.isHidden = false
+        captionLabel.alpha = 0
         framesImagePicker.isUserInteractionEnabled = false
-        UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseInOut, animations: {
-            self.framesImagePicker.scrollToLastItem()
-        }, completion: { (finished) in
-            self.framesImagePicker.isUserInteractionEnabled = finished
+        UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseInOut, animations: { [weak self] in
+            self?.framesImagePicker.scrollToLastItem()
+        }, completion: { [weak self] (finished) in
+            self?.framesImagePicker.isUserInteractionEnabled = finished
+            UIView.animate(withDuration: 2, animations: {
+                self?.captionLabel.alpha = 1
+            })
         })
     }
 }
@@ -44,19 +78,11 @@ class InitialLaunchViewController: UIViewController {
 extension InitialLaunchViewController: FramesPickerViewDelegate, FramesPickerViewDataSource {
     
     func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int {
-        return images.count
+        return viewModel.images.count
     }
     
     func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
-        return images.reversed()[item]
-    }
-    
-    func framesPickerView(_ pickerView: FramesPickerView, didSelectItem item: Int) {
-        imageView.image = images.reversed()[item]
-    }
-    
-    func framesPickerView(_ pickerView: FramesPickerView, sizeForItem: Int) -> CGSize {
-        return CGSize(width: 50, height: 50)
+        return viewModel.images.reversed()[item]
     }
 
 }

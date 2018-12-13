@@ -21,16 +21,16 @@ final class Application {
     
     func configureMainInterface(in window: UIWindow) {
         let storyboard = UIStoryboard(name: "InitialLaunchScreen", bundle: nil)
-        
-        let mainFeedNavigationController = UINavigationController()
+        let initialScreenNavController = UINavigationController()
+        let initialScreenRouter = InitialLaunchScreenRouter(navigationController: initialScreenNavController,
+                                                            storyBoard: storyboard)
 
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [
-            mainFeedNavigationController
+            
         ]
         
-        let vc = storyboard.instantiateViewController(withIdentifier: "InitialLaunchViewController")
-        vc.view.backgroundColor = .white
-        window.rootViewController = vc
+        window.rootViewController = initialScreenNavController
+        initialScreenRouter.toInititalLaunch()
     }
 }

@@ -97,7 +97,7 @@ class FramesTextField: UITextField {
         let padding: CGFloat = 5
         let titleLabelHeight: CGFloat = titleLabel.hasNoText ? 0 : titleLabel.bounds.height
         let descriptionLabelHeight: CGFloat = descriptionLabel.hasNoText ? 0 : descriptionLabel.bounds.height
-        
+        // TODO: - 
         let totalHeight: CGFloat = underlineHeight + padding * 2 + titleLabelHeight + descriptionLabelHeight
         return 69
     }
