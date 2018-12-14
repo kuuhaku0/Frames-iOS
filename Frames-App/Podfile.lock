@@ -1,7 +1,4 @@
 PODS:
-  - Action (3.9.1):
-    - RxCocoa (~> 4.3)
-    - RxSwift (~> 4.3)
   - Alamofire (4.7.3)
   - AWSAppSync (2.6.24):
     - AWSCore (~> 2.7.0)
@@ -23,6 +20,14 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
+  - RxSwiftExt (3.4.0):
+    - RxSwiftExt/Core (= 3.4.0)
+    - RxSwiftExt/RxCocoa (= 3.4.0)
+  - RxSwiftExt/Core (3.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwiftExt/RxCocoa (3.4.0):
+    - RxCocoa (~> 4.0)
+    - RxSwiftExt/Core
   - RxTest (4.4.0):
     - RxAtomic (~> 4.4)
     - RxSwift (~> 4.0)
@@ -31,7 +36,6 @@ PODS:
   - SQLite.swift/standard (0.11.4)
 
 DEPENDENCIES:
-  - Action
   - Alamofire
   - AWSAppSync (~> 2.6.24)
   - Nimble
@@ -39,11 +43,11 @@ DEPENDENCIES:
   - RxBlocking
   - RxCocoa
   - RxSwift
+  - RxSwiftExt
   - RxTest
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Action
     - Alamofire
     - AWSAppSync
     - AWSCore
@@ -54,11 +58,11 @@ SPEC REPOS:
     - RxBlocking
     - RxCocoa
     - RxSwift
+    - RxSwiftExt
     - RxTest
     - SQLite.swift
 
 SPEC CHECKSUMS:
-  Action: 2f461c203c480b17aa99b3bb166e4329ecff6908
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AWSAppSync: 88b8bcf344073d2cbb312bf6c7f3193cc0893d60
   AWSCore: 02d9ae2b6c2aaba6077fee2b09b0a62fb9b80282
@@ -69,9 +73,10 @@ SPEC CHECKSUMS:
   RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
   RxTest: 19d03286bdc0a3aaea5d61d4cde31fdf4bb8a5ba
   SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
 
-PODFILE CHECKSUM: 90095105dc5aed3d43d130d452f42e2dc001312f
+PODFILE CHECKSUM: 04014efa24febbd7a9ba85ca07bbcaf4e0fce3e8
 
 COCOAPODS: 1.5.3

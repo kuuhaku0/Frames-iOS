@@ -12,15 +12,7 @@ import RxSwift
 import RxCocoa
 
 final class InitialLaunchViewModel: ViewModelType {
-    
-    let images: [UIImage] = [UIImage(imageLiteralResourceName: "Logo"),
-                             UIImage(imageLiteralResourceName: "Logo2"),
-                             UIImage(imageLiteralResourceName: "Logo3"),
-                             UIImage(imageLiteralResourceName: "Logo4"),
-                             UIImage(imageLiteralResourceName: "Logo5"),
-                             UIImage(imageLiteralResourceName: "Logo6"),
-                             UIImage(imageLiteralResourceName: "Logo7")]
-    
+
     struct Input {
         let signUpTigger: Driver<Void>
         let signInTrigger: Driver<Void>
@@ -29,29 +21,34 @@ final class InitialLaunchViewModel: ViewModelType {
     struct Output {
         let signUp: Driver<Void>
         let signIn: Driver<Void>
-    }
-    
-    private let router: InitialLaunchRouter
-    
-    init(router: InitialLaunchRouter) {
-        self.router = router
+        let images$: Driver<[UIImage]>
     }
     
     func transform(input: Input) -> Output {
+        
+        let images: [UIImage] = [UIImage(imageLiteralResourceName: "Logo"),
+                                 UIImage(imageLiteralResourceName: "Logo2"),
+                                 UIImage(imageLiteralResourceName: "Logo3"),
+                                 UIImage(imageLiteralResourceName: "Logo4"),
+                                 UIImage(imageLiteralResourceName: "Logo5"),
+                                 UIImage(imageLiteralResourceName: "Logo6"),
+                                 UIImage(imageLiteralResourceName: "Logo7")]
+        
         let signUp = input
             .signUpTigger
             .do(onNext: {
-                self.router.toSignUp()
+                
             })
         
         let signIn = input
             .signInTrigger
             .do(onNext: {
-                self.router.toLogin()
+               
             })
         
         return Output(signUp: signUp,
-                      signIn: signIn)
+                      signIn: signIn,
+                      images$: Driver.just(images))
     }
     
 }

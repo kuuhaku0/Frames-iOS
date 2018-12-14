@@ -25,13 +25,13 @@ protocol FramesPickerViewDataSource: AnyObject {
 class FramesPickerView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Properties
-    lazy var selector: UIView = {
+    private lazy var selector: UIView = {
         let view = UIView(frame: CGRect(x: collectionView.center.x, y: 0, width: 3, height: bounds.height))
         view.backgroundColor = UIColor.darkGray
         return view
     }()
     
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let layout = FramesPickerViewLayout()
         let cv = UICollectionView(frame: bounds, collectionViewLayout: layout)
         cv.register(FramesPickerViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(FramesPickerViewCell.self))
@@ -143,11 +143,12 @@ class FramesPickerView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
 }
 
-extension FramesPickerView {
+extension FramesPickerView: HasDataSource, HasDelegate {
     public typealias Delegate = FramesPickerViewDelegate
     public typealias DataSource = FramesPickerViewDataSource
 }
 
+//MARK: - RxDelegateProxy
 class FramesPickerViewDelegateProxy: DelegateProxy<FramesPickerView, FramesPickerViewDelegate>, DelegateProxyType, FramesPickerViewDelegate {
     
     static func currentDelegate(for object: FramesPickerView) -> FramesPickerViewDelegate? {
@@ -165,58 +166,14 @@ class FramesPickerViewDelegateProxy: DelegateProxy<FramesPickerView, FramesPicke
     public static func registerKnownImplementations() {
         self.register { FramesPickerViewDelegateProxy(parentObject: $0) }
     }
-    
 }
 
-
-//fileprivate let framesPickerViewDataSourceNotSet = FramesPickerViewDataSourceNotSet()
-//
-//fileprivate final class FramesPickerViewDataSourceNotSet: NSObject, FramesPickerViewDataSource {
-//    func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int {
-//        return 0
-//    }
-//
-//    func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
-//        return UIImage()
-//    }
-//
-//}
-//
-//class FramesPickerViewDataSourceProxy: DelegateProxy<FramesPickerView, FramesPickerViewDataSource>, DelegateProxyType, FramesPickerViewDataSource {
-//
-//    public weak private(set) var framesPickerView: FramesPickerView?
-//
-//    private weak var _requiredMethodsDataSource: FramesPickerViewDataSource? = framesPickerViewDataSourceNotSet
-//
-//    public init(framesPickerView: ParentObject) {
-//        self.framesPickerView = framesPickerView
-//        super.init(parentObject: framesPickerView, delegateProxy: FramesPickerViewDataSourceProxy.self)
-//    }
-//
-//    public static func registerKnownImplementations() {
-//        self.register { FramesPickerViewDataSourceProxy(framesPickerView: $0) }
-//    }
-//
-//    public static func currentDelegate(for object: FramesPickerView) -> FramesPickerViewDataSource? {
-//        return object.dataSource
-//    }
-//
-//    public static func setCurrentDelegate(_ delegate: FramesPickerViewDataSource?, to object: FramesPickerView) {
-//        object.dataSource = delegate
-//    }
-//
-//    func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int {
-//        return _requiredMethodsDataSource?.framesPickerView(_:numberOfItems:)
-//    }
-//
-//    func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
-//        return (_requiredMethodsDataSource ?? framesPickerViewDataSourceNotSet).framesPickerView(pickerView, numberOfItems: item)
-//    }
-//
-//}
-
-
 extension Reactive where Base: FramesPickerView {
+    
+    func setDelegate(_ delegate: FramesPickerViewDelegate) {
+        FramesPickerViewDelegateProxy.setCurrentDelegate(delegate, to: base)
+    }
+    
     var delegate: DelegateProxy<FramesPickerView, FramesPickerViewDelegate> {
         return FramesPickerViewDelegateProxy.proxy(for: base)
     }
@@ -234,14 +191,65 @@ extension Reactive where Base: FramesPickerView {
             .methodInvoked(#selector(FramesPickerViewDelegate.framesPickerView(_:sizeForItem:)))
             .map { params -> CGSize in
                 return params[1] as! CGSize
-            }
+        }
     }
 }
 
-//extension Reactive where Base: FramesPickerView {
-//    var dataSource: DelegateProxy<FramesPickerView, FramesPickerViewDataSource> {
-//        return FramesPickerViewDataSourceProxy.proxy(for: base)
-//    }
-//
-//
-//}
+fileprivate let framesPickerViewDataSourceNotSet = FramesPickerViewDataSourceNotSet()
+
+fileprivate final class FramesPickerViewDataSourceNotSet: NSObject, FramesPickerViewDataSource {
+    func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int {
+        return 0
+    }
+
+    func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
+        return UIImage()
+    }
+}
+
+// MARK: - RxDataSourceProxy
+class FramesPickerViewDataSourceProxy: DelegateProxy<FramesPickerView, FramesPickerViewDataSource>, DelegateProxyType, FramesPickerViewDataSource {
+
+    public weak private(set) var framesPickerView: FramesPickerView?
+
+    private weak var _requiredMethodsDataSource: FramesPickerViewDataSource? = framesPickerViewDataSourceNotSet
+
+    public init(framesPickerView: ParentObject) {
+        self.framesPickerView = framesPickerView
+        super.init(parentObject: framesPickerView, delegateProxy: FramesPickerViewDataSourceProxy.self)
+    }
+
+    public static func registerKnownImplementations() {
+        self.register { FramesPickerViewDataSourceProxy(framesPickerView: $0) }
+    }
+
+    public static func currentDelegate(for object: FramesPickerView) -> FramesPickerViewDataSource? {
+        return object.dataSource
+    }
+
+    public static func setCurrentDelegate(_ delegate: FramesPickerViewDataSource?, to object: FramesPickerView) {
+        object.dataSource = delegate
+    }
+
+    func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int {
+        return (_requiredMethodsDataSource ?? framesPickerViewDataSourceNotSet).framesPickerView(pickerView, numberOfItems: item)
+    }
+
+    func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
+        return (_requiredMethodsDataSource ?? framesPickerViewDataSourceNotSet).framesPickerView(pickerView, cellForItem: item)
+    }
+    
+    open override func setForwardToDelegate(_ forwardToDelegate: FramesPickerViewDataSource?, retainDelegate: Bool) {
+        _requiredMethodsDataSource = forwardToDelegate ?? framesPickerViewDataSourceNotSet
+        super.setForwardToDelegate(forwardToDelegate, retainDelegate: retainDelegate)
+    }
+
+}
+
+extension Reactive where Base: FramesPickerView {
+    
+    func setDataSource(_ dataSource: FramesPickerViewDataSource) {
+        FramesPickerViewDataSourceProxy.setCurrentDelegate(dataSource, to: base)
+    }
+    
+}

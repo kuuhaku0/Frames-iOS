@@ -9,6 +9,10 @@ def rx_cocoa
     pod 'RxCocoa'
 end
 
+def rx_swift_ext
+    pod 'RxSwiftExt'
+end
+
 def test_pods
     pod 'RxTest'
     pod 'RxBlocking'
@@ -33,9 +37,10 @@ target 'Frames-App' do
   use_frameworks!
   rx_swift
   rx_cocoa
+  rx_swift_ext
+  
   # Pods for Frames-App
     pod 'RxSwift'
-    pod 'Action'
 
   target 'Frames-AppTests' do
     inherit! :search_paths

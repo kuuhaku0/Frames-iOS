@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class InitialLaunchViewController: UIViewController {
+class InitialLaunchViewController: UIViewController, StoryboardInitializable {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var framesImagePicker: FramesPickerView!
@@ -26,13 +26,12 @@ class InitialLaunchViewController: UIViewController {
         super.viewDidLoad()
         setup()
         bindViewModel()
-        perform(#selector(scrollTo), with: nil, afterDelay: TimeInterval(0.5))
 
         framesImagePicker.rx.didSelectItem
             .asObservable()
             .subscribe { (index) in
                 guard let index = index.element else { return }
-                self.imageView.image = self.viewModel.images.reversed()[index]
+                //self.imageView.image = self.viewModel.images.reversed()[index]
             }
             .disposed(by: disposeBag)
     }
@@ -41,10 +40,12 @@ class InitialLaunchViewController: UIViewController {
         captionLabel.isHidden = true
         captionLabel.alpha = 0
 
-        imageView.image = viewModel.images.last
+        //imageView.image = viewModel.images.last
         
-        framesImagePicker.delegate = self
-        framesImagePicker.dataSource = self
+        framesImagePicker.rx.setDelegate(self)
+        framesImagePicker.rx.setDataSource(self)
+        
+        perform(#selector(scrollTo), with: nil, afterDelay: TimeInterval(0.5))
     }
     
     private func bindViewModel() {
@@ -54,6 +55,10 @@ class InitialLaunchViewController: UIViewController {
         
         let output = viewModel.transform(input: input)
         
+        output.images$
+            .drive()
+            .disposed(by: disposeBag)
+        
         output.signIn
             .drive()
             .disposed(by: disposeBag)
@@ -61,7 +66,6 @@ class InitialLaunchViewController: UIViewController {
         output.signUp
             .drive()
             .disposed(by: disposeBag)
-        
     }
     
     @objc func scrollTo() {
@@ -81,11 +85,10 @@ class InitialLaunchViewController: UIViewController {
 extension InitialLaunchViewController: FramesPickerViewDelegate, FramesPickerViewDataSource {
     
     func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int {
-        return viewModel.images.count
+        return 0
     }
     
     func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
-        return viewModel.images.reversed()[item]
+        return UIImage()
     }
-
 }
