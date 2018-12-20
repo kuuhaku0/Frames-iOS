@@ -17,17 +17,10 @@ protocol FramesPickerViewDelegate: AnyObject {
     @objc optional func framesPickerView(_ pickerView: FramesPickerView, sizeForItem: Int) -> CGSize
 }
 
-@objc
-protocol FramesPickerViewDataSource: AnyObject {
-    @objc func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int
-    @objc func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage
-}
-
 @IBDesignable
-class FramesPickerView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class FramesPickerView: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     weak var delegate: FramesPickerViewDelegate?
-    weak var dataSource: FramesPickerViewDataSource?
     
     // MARK: - Properties
     private lazy var selector: UIView = {
@@ -42,7 +35,6 @@ class FramesPickerView: UIViewController, UICollectionViewDelegate, UICollection
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         cv.register(FramesPickerViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(FramesPickerViewCell.self))
         cv.delegate = self
-        cv.dataSource = self
         cv.showsHorizontalScrollIndicator = false
         cv.backgroundColor = .clear
         cv.bounces = false
@@ -64,19 +56,18 @@ class FramesPickerView: UIViewController, UICollectionViewDelegate, UICollection
     // MARK: -
     private func configure() {
         view.addSubview(collectionView)
-        view.backgroundColor = .gray
         collectionView.backgroundColor = .clear
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         view.addSubview(selector)
-        
         NSLayoutConstraint.activate([
             selector.heightAnchor.constraint(equalTo: collectionView.heightAnchor),
             selector.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
             selector.widthAnchor.constraint(equalToConstant: 3),
-            selector.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor)
+            selector.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor),
+            
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
@@ -113,16 +104,6 @@ class FramesPickerView: UIViewController, UICollectionViewDelegate, UICollection
         collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource?.framesPickerView(self, numberOfItems: section) ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(FramesPickerViewCell.self), for: indexPath) as! FramesPickerViewCell
-        cell.imageView.image = dataSource?.framesPickerView(self, cellForItem: indexPath.item)
-        return cell
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
@@ -141,7 +122,7 @@ class FramesPickerView: UIViewController, UICollectionViewDelegate, UICollection
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let number = self.collectionView(collectionView, numberOfItemsInSection: section)
+        let number = self.collectionView.numberOfItems(inSection: section)
         let firstIndexPath = IndexPath(item: 0, section: section)
         let firstSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: firstIndexPath)
         let lastIndexPath = IndexPath(item: number - 1, section: section)
@@ -153,9 +134,8 @@ class FramesPickerView: UIViewController, UICollectionViewDelegate, UICollection
     }
 }
 
-extension FramesPickerView: HasDataSource, HasDelegate {
+extension FramesPickerView: HasDelegate {
     public typealias Delegate = FramesPickerViewDelegate
-    public typealias DataSource = FramesPickerViewDataSource
 }
 
 //MARK: - RxDelegateProxy
@@ -202,67 +182,5 @@ extension Reactive where Base: FramesPickerView {
             .map { params -> CGSize in
                 return params[1] as! CGSize
         }
-    }
-}
-
-fileprivate let framesPickerViewDataSourceNotSet = FramesPickerViewDataSourceNotSet()
-
-fileprivate final class FramesPickerViewDataSourceNotSet: NSObject, FramesPickerViewDataSource {
-    func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int {
-        return 0
-    }
-
-    @objc func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
-        return UIImage()
-    }
-}
-
-// MARK: - RxDataSourceProxy
-class FramesPickerViewDataSourceProxy: DelegateProxy<FramesPickerView, FramesPickerViewDataSource>, DelegateProxyType, FramesPickerViewDataSource {
-
-    public weak private(set) var framesPickerView: FramesPickerView?
-
-    private weak var _requiredMethodsDataSource: FramesPickerViewDataSource? = framesPickerViewDataSourceNotSet
-
-    public init(framesPickerView: ParentObject) {
-        self.framesPickerView = framesPickerView
-        super.init(parentObject: framesPickerView, delegateProxy: FramesPickerViewDataSourceProxy.self)
-    }
-
-    public static func registerKnownImplementations() {
-        self.register { FramesPickerViewDataSourceProxy(framesPickerView: $0) }
-    }
-
-    public static func currentDelegate(for object: FramesPickerView) -> FramesPickerViewDataSource? {
-        return object.dataSource
-    }
-
-    public static func setCurrentDelegate(_ delegate: FramesPickerViewDataSource?, to object: FramesPickerView) {
-        object.dataSource = delegate
-    }
-
-    func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int {
-        return (_requiredMethodsDataSource ?? framesPickerViewDataSourceNotSet).framesPickerView(pickerView, numberOfItems: item)
-    }
-
-    func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
-        return (_requiredMethodsDataSource ?? framesPickerViewDataSourceNotSet).framesPickerView(pickerView, cellForItem: item)
-    }
-
-    open override func setForwardToDelegate(_ forwardToDelegate: FramesPickerViewDataSource?, retainDelegate: Bool) {
-        _requiredMethodsDataSource = forwardToDelegate ?? framesPickerViewDataSourceNotSet
-        super.setForwardToDelegate(forwardToDelegate, retainDelegate: retainDelegate)
-    }
-
-}
-
-extension Reactive where Base: FramesPickerView {
-
-    var dataSource: DelegateProxy<FramesPickerView, FramesPickerViewDataSource> {
-        return FramesPickerViewDataSourceProxy.proxy(for: base)
-    }
-
-    func setDataSource(_ dataSource: FramesPickerViewDataSource) -> Disposable {
-        return FramesPickerViewDataSourceProxy.installForwardDelegate(dataSource, retainDelegate: false, onProxyForObject: self.base)
     }
 }

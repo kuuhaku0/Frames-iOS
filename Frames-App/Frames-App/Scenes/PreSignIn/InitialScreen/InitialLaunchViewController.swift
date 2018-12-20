@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class InitialLaunchViewController: UIViewController, StoryboardInitializable {
+class InitialLaunchViewController: UIViewController, StoryboardInitializable, FramesPickerViewDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var signInButton: UIButton!
@@ -41,13 +41,6 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable {
         captionLabel.isHidden = true
         captionLabel.alpha = 0
         navigationController?.isNavigationBarHidden = true
-        
-        framesVC?.rx.setDataSource(self)
-            .disposed(by: disposeBag)
-        
-        framesVC?.rx.setDelegate(self)
-            .disposed(by: disposeBag)
-        
         perform(#selector(scrollTo), with: nil, afterDelay: TimeInterval(0.5))
     }
     
@@ -66,22 +59,19 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable {
             .drive()
             .disposed(by: disposeBag)
         
-        framesVC?.rx.didSelectItem
-            .asObservable()
-            .subscribe { (index) in
-                guard let index = index.element else { return }
-                output.images$.map ({ [weak self] image in
-                    self?.imageView.image = image[index]
-                })
-                    .drive()
-                    .disposed(by: self.disposeBag)
+        output.images$.drive(framesVC.collectionView.rx
+            .items(cellIdentifier: NSStringFromClass(FramesPickerViewCell.self), cellType: FramesPickerViewCell.self)) { tv, viewModel, cell in
+                cell.configure()
+                cell.imageView.image = viewModel
             }
             .disposed(by: disposeBag)
         
-        output.images$.map({ image in
-            self.imageView.image = image.first
-        })
-            .drive()
+        framesVC?.rx.didSelectItem
+            .asObservable()
+            .withLatestFrom(output.images$.asObservable(), resultSelector: { int, images  in
+                return images[int]
+            })
+            .bind(to: imageView.rx.image)
             .disposed(by: disposeBag)
     }
     
@@ -97,17 +87,4 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable {
             })
         })
     }
-}
-
-extension InitialLaunchViewController: FramesPickerViewDelegate, FramesPickerViewDataSource {
-
-    func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int {
-        return 7
-    }
-
-    func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
-        return #imageLiteral(resourceName: "d")
-    }
-    
-    
 }
