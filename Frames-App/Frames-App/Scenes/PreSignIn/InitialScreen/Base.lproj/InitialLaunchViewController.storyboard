@@ -36,43 +36,46 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeB-pM-ZZP" customClass="FramesPickerView" customModule="Frames_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="531.66666666666663" width="414" height="70"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Ppr-nG-IyK"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6S-Yu-5La" customClass="FramesButton" customModule="Frames_App" customModuleProvider="target">
                                 <rect key="frame" x="184" y="747" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Create an Account"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHf-lD-iT4">
+                                <rect key="frame" x="0.0" y="531.66666666666663" width="414" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="MMg-nj-lnh"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="8Hf-0u-fJD" kind="embed" identifier="childVC1" id="zuP-vU-Lrd"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zeB-pM-ZZP" firstAttribute="top" secondItem="abG-ZS-EOn" secondAttribute="bottom" constant="30" id="47O-vs-ytj"/>
                             <constraint firstItem="abG-ZS-EOn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Y6-F2-wjm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zeB-pM-ZZP" secondAttribute="trailing" id="CUO-6j-bof"/>
+                            <constraint firstItem="FHf-lD-iT4" firstAttribute="top" secondItem="abG-ZS-EOn" secondAttribute="bottom" constant="30" id="A8j-cV-4NT"/>
                             <constraint firstItem="ne2-vN-2IW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GbH-JY-Dmz"/>
                             <constraint firstItem="abG-ZS-EOn" firstAttribute="width" secondItem="ne2-vN-2IW" secondAttribute="width" id="HJP-eL-ReI"/>
                             <constraint firstItem="x6S-Yu-5La" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IrL-pE-aH0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FHf-lD-iT4" secondAttribute="trailing" id="MC0-vS-TlE"/>
                             <constraint firstItem="ne2-vN-2IW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" multiplier="0.1" constant="125" id="PBY-bh-vMz"/>
                             <constraint firstItem="ne2-vN-2IW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="SFe-E2-1Kd"/>
                             <constraint firstItem="abG-ZS-EOn" firstAttribute="top" secondItem="ne2-vN-2IW" secondAttribute="bottom" constant="15" id="UiR-0i-Njb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ne2-vN-2IW" secondAttribute="trailing" constant="38" id="VqI-bO-xM5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tTj-cF-iqY" secondAttribute="bottom" constant="35" id="bN5-LF-BgW"/>
                             <constraint firstItem="tTj-cF-iqY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dwY-lW-Exn"/>
-                            <constraint firstItem="zeB-pM-ZZP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lAz-gX-lGI"/>
+                            <constraint firstItem="FHf-lD-iT4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lm9-MI-tzT"/>
                             <constraint firstItem="tTj-cF-iqY" firstAttribute="top" secondItem="x6S-Yu-5La" secondAttribute="bottom" constant="20" id="rzM-xj-NwT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="captionLabel" destination="abG-ZS-EOn" id="EDL-Oq-6df"/>
-                        <outlet property="framesImagePicker" destination="zeB-pM-ZZP" id="hZI-30-eiL"/>
+                        <outlet property="framesPickerView" destination="FHf-lD-iT4" id="qGU-RW-UqI"/>
                         <outlet property="imageView" destination="ne2-vN-2IW" id="PN2-y4-dh7"/>
                         <outlet property="signInButton" destination="tTj-cF-iqY" id="0My-Ca-JAf"/>
                         <outlet property="signUpButton" destination="x6S-Yu-5La" id="sFA-4Q-MCh"/>
@@ -80,7 +83,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-181" y="25"/>
+            <point key="canvasLocation" x="-300" y="25"/>
+        </scene>
+        <!--Frames Picker View-->
+        <scene sceneID="GeP-Fw-1eZ">
+            <objects>
+                <viewController storyboardIdentifier="FramesPickerView" id="8Hf-0u-fJD" customClass="FramesPickerView" customModule="Frames_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b9R-wb-9fa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="koe-So-glL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PiI-nC-1lg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="461" y="-91"/>
         </scene>
     </scenes>
 </document>

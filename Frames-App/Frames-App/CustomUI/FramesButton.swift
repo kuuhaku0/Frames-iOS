@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+@IBDesignable 
 class FramesButton: UIButton {
     
     @IBInspectable public var titleText: String = "" {

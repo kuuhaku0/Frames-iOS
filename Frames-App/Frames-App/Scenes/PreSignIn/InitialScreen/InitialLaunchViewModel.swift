@@ -26,13 +26,13 @@ final class InitialLaunchViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         
-        let images: [UIImage] = [UIImage(imageLiteralResourceName: "Logo"),
-                                 UIImage(imageLiteralResourceName: "Logo2"),
-                                 UIImage(imageLiteralResourceName: "Logo3"),
-                                 UIImage(imageLiteralResourceName: "Logo4"),
-                                 UIImage(imageLiteralResourceName: "Logo5"),
-                                 UIImage(imageLiteralResourceName: "Logo6"),
-                                 UIImage(imageLiteralResourceName: "Logo7")]
+        let images: Driver<[UIImage]> = Driver.just([UIImage(imageLiteralResourceName: "Logo"),
+                                                     UIImage(imageLiteralResourceName: "Logo2"),
+                                                     UIImage(imageLiteralResourceName: "Logo3"),
+                                                     UIImage(imageLiteralResourceName: "Logo4"),
+                                                     UIImage(imageLiteralResourceName: "Logo5"),
+                                                     UIImage(imageLiteralResourceName: "Logo6"),
+                                                     UIImage(imageLiteralResourceName: "Logo7")])
         
         let signUp = input
             .signUpTigger
@@ -48,7 +48,7 @@ final class InitialLaunchViewModel: ViewModelType {
         
         return Output(signUp: signUp,
                       signIn: signIn,
-                      images$: Driver.just(images))
+                      images$: images)
     }
     
 }

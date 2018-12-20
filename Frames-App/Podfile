@@ -13,6 +13,10 @@ def rx_swift_ext
     pod 'RxSwiftExt'
 end
 
+def rx_dataSource
+    pod 'RxDataSources'
+end
+    
 def test_pods
     pod 'RxTest'
     pod 'RxBlocking'
@@ -38,6 +42,7 @@ target 'Frames-App' do
   rx_swift
   rx_cocoa
   rx_swift_ext
+  rx_dataSource
   
   # Pods for Frames-App
     pod 'RxSwift'

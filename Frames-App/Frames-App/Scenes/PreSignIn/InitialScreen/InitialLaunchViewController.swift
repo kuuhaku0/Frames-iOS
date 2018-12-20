@@ -13,37 +13,40 @@ import RxCocoa
 class InitialLaunchViewController: UIViewController, StoryboardInitializable {
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var framesImagePicker: FramesPickerView!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpButton: FramesButton!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var framesPickerView: UIView!
     
     private let disposeBag = DisposeBag()
     
     var viewModel: InitialLaunchViewModel!
+    weak var framesVC: FramesPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         bindViewModel()
-
-        framesImagePicker.rx.didSelectItem
-            .asObservable()
-            .subscribe { (index) in
-                guard let index = index.element else { return }
-                //self.imageView.image = self.viewModel.images.reversed()[index]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "childVC1" {
+            if let destination = segue.destination as? FramesPickerView {
+                self.framesVC = destination
             }
-            .disposed(by: disposeBag)
+        }
     }
     
     private func setup() {
         captionLabel.isHidden = true
         captionLabel.alpha = 0
-
-        //imageView.image = viewModel.images.last
+        navigationController?.isNavigationBarHidden = true
         
-        framesImagePicker.rx.setDelegate(self)
-        framesImagePicker.rx.setDataSource(self)
+        framesVC?.rx.setDataSource(self)
+            .disposed(by: disposeBag)
+        
+        framesVC?.rx.setDelegate(self)
+            .disposed(by: disposeBag)
         
         perform(#selector(scrollTo), with: nil, afterDelay: TimeInterval(0.5))
     }
@@ -55,10 +58,6 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable {
         
         let output = viewModel.transform(input: input)
         
-        output.images$
-            .drive()
-            .disposed(by: disposeBag)
-        
         output.signIn
             .drive()
             .disposed(by: disposeBag)
@@ -66,15 +65,33 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable {
         output.signUp
             .drive()
             .disposed(by: disposeBag)
+        
+        framesVC?.rx.didSelectItem
+            .asObservable()
+            .subscribe { (index) in
+                guard let index = index.element else { return }
+                output.images$.map ({ [weak self] image in
+                    self?.imageView.image = image[index]
+                })
+                    .drive()
+                    .disposed(by: self.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        output.images$.map({ image in
+            self.imageView.image = image.first
+        })
+            .drive()
+            .disposed(by: disposeBag)
     }
     
     @objc func scrollTo() {
         captionLabel.isHidden = false
-        framesImagePicker.isUserInteractionEnabled = false
+        framesPickerView.isUserInteractionEnabled = false
         UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseInOut, animations: { [weak self] in
-            self?.framesImagePicker.scrollToLastItem()
+            self?.framesVC?.scrollToLastItem()
         }, completion: { [weak self] (finished) in
-            self?.framesImagePicker.isUserInteractionEnabled = finished
+            self?.framesPickerView.isUserInteractionEnabled = true
             UIView.animate(withDuration: 2, animations: {
                 self?.captionLabel.alpha = 1
             })
@@ -83,12 +100,14 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable {
 }
 
 extension InitialLaunchViewController: FramesPickerViewDelegate, FramesPickerViewDataSource {
-    
+
     func framesPickerView(_ pickerView: FramesPickerView, numberOfItems item: Int) -> Int {
-        return 0
+        return 7
+    }
+
+    func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
+        return #imageLiteral(resourceName: "d")
     }
     
-    func framesPickerView(_ pickerView: FramesPickerView, cellForItem item: Int) -> UIImage {
-        return UIImage()
-    }
+    
 }
