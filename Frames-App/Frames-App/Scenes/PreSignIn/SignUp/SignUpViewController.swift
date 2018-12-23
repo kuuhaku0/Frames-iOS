@@ -8,14 +8,22 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, StoryboardInitializable {
     
     var viewModel: SignUpViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        bindViewModel()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillDisappear(animated)
+    }
+    
+    private func setup() {
+       
     }
     
     private func bindViewModel() {
@@ -23,6 +31,7 @@ class SignUpViewController: UIViewController {
         
         let input = UserProfileViewModel.Input()
         let output = UserProfileViewModel.Output()
+        
         
     }
 

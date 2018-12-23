@@ -29,6 +29,16 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable, Fr
         bindViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "childVC1" {
             if let destination = segue.destination as? FramesPickerView {
@@ -40,7 +50,7 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable, Fr
     private func setup() {
         captionLabel.isHidden = true
         captionLabel.alpha = 0
-        navigationController?.isNavigationBarHidden = true
+        framesPickerView.isUserInteractionEnabled = false
         perform(#selector(scrollTo), with: nil, afterDelay: TimeInterval(0.5))
     }
     
@@ -77,7 +87,6 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable, Fr
     
     @objc func scrollTo() {
         captionLabel.isHidden = false
-        framesPickerView.isUserInteractionEnabled = false
         UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseInOut, animations: { [weak self] in
             self?.framesVC?.scrollToLastItem()
         }, completion: { [weak self] (finished) in

@@ -82,11 +82,11 @@ class FramesPickerView: UIViewController, UICollectionViewDelegate, UICollection
         let co = collectionView.contentOffset.x
         let no = co + speed
         let cellWidth: CGFloat = 50
-        UIView.animate(withDuration: 0.0015, delay: 0, options: .curveEaseIn, animations: { [weak self] in
+        UIView.animate(withDuration: 0.0014, delay: 0, options: .curveEaseIn, animations: { [weak self] in
             self?.collectionView.contentOffset = CGPoint(x: no, y: 0)
             }, completion: { [weak self] (complete) in
                 guard let self = self else { return }
-                // This expression isnt 100% 
+                // This expression isnt 100%
                 if co >= self.collectionView.contentSize.width / 2 - cellWidth - speed * 2.5 { return }
                 self.scrollToLastItem()
         })

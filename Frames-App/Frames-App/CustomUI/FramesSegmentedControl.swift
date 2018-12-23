@@ -326,3 +326,4 @@ public class SegmentControl: UIControl {
         }
     }
 }
+

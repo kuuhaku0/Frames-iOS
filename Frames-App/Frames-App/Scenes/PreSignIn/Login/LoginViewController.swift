@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, StoryboardInitializable {
     
     var viewModel: LoginViewModel!
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,4 +21,11 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    private func bindViewModel() {
+        assert(viewModel != nil)
+        
+        let input = UserProfileViewModel.Input()
+        let output = UserProfileViewModel.Output()
+        
+    }
 }

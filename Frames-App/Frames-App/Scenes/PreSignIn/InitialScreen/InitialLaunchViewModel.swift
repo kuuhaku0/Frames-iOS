@@ -24,6 +24,12 @@ final class InitialLaunchViewModel: ViewModelType {
         let images$: Driver<[UIImage]>
     }
     
+    private let coordinator: PreLoginFlowCoordinator
+    
+    init(coordinator: PreLoginFlowCoordinator) {
+        self.coordinator = coordinator
+    }
+    
     func transform(input: Input) -> Output {
         
         let images: Driver<[UIImage]> = Driver.just([UIImage(imageLiteralResourceName: "Logo7"),
@@ -36,15 +42,11 @@ final class InitialLaunchViewModel: ViewModelType {
         
         let signUp = input
             .signUpTigger
-            .do(onNext: {
-                
-            })
+            .do(onNext: coordinator.showLogin)
         
         let signIn = input
             .signInTrigger
-            .do(onNext: {
-               
-            })
+            .do(onNext: coordinator.showSignUp)
         
         return Output(signUp: signUp,
                       signIn: signIn,

@@ -22,7 +22,7 @@ class AppCoordinator: BaseCoordinator<Void> {
     }
     
     override func start() -> Observable<Void> {
-        let inititalScreenCoordinator = InitialScreenCoordinator(window: window)
+        let inititalScreenCoordinator = PreLoginFlowCoordinator(window: window)
         return coordinate(to: inititalScreenCoordinator)
     }
     
