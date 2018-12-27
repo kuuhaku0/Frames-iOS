@@ -9,47 +9,52 @@
 import UIKit
 import RxSwift
 
-protocol PreLoginFlowCoordinate {
-    func showLogin()
-    func showSignUp()
-}
-
-class PreLoginFlowCoordinator: BaseCoordinator<Void>, PreLoginFlowCoordinate {
+class PreLoginFlowCoordinator: BaseCoordinator<Void> {
     
     private let window: UIWindow
-    private var navigationController: UINavigationController?
     
     init(window: UIWindow) {
         self.window = window
     }
     
     override func start() -> Observable<Void> {
-        let viewModel = InitialLaunchViewModel(coordinator: self)
+        let viewModel = InitialLaunchViewModel()
         let vc = InitialLaunchViewController.initFromStoryboard(name: InitialLaunchViewController.storyboardIdentifier)
-        self.navigationController = UINavigationController(rootViewController: vc)
+        let navigationController = UINavigationController(rootViewController: vc)
         
         vc.viewModel = viewModel
+        
+        viewModel.didTapSignIn
+            .subscribe(onNext: {[weak self] in self?.showSignIn(in: navigationController) })
+            .disposed(by: disposeBag)
+        
+        viewModel.didTapSignUp
+            .subscribe(onNext: { [weak self] in
+                self?.showSignUp(in: navigationController)
+            })
+            .disposed(by: disposeBag)
+        
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     
         return Observable.never()
     }
     
-    func showLogin() {
-        let viewModel = LoginViewModel()
-        let vc = LoginViewController.initFromStoryboard(name: LoginViewController.storyboardIdentifier)
-        
-        vc.viewModel = viewModel
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func showSignUp() {
-        let viewModel = SignUpViewModel()
-        let vc = SignUpViewController.initFromStoryboard(name: SignUpViewController.storyboardIdentifier)
-        
+    func showSignIn(in navigationController: UINavigationController) {
+        let viewModel = SignInViewModel()
+        let vc = SignInViewController.initFromStoryboard(name: SignInViewController.storyboardIdentifier)
+
         vc.viewModel = viewModel
 
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
+    }
+
+    func showSignUp(in navigationController: UINavigationController ) {
+        let viewModel = SignUpViewModel()
+        let vc = SignUpViewController.initFromStoryboard(name: SignUpViewController.storyboardIdentifier)
+
+        vc.viewModel = viewModel
+
+        navigationController.pushViewController(vc, animated: true)
     }
 }

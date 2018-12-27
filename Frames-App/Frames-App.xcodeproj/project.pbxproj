@@ -80,8 +80,8 @@
 		D2C956C421B7653600B90842 /* ObservableTypes + Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C321B7653600B90842 /* ObservableTypes + Extras.swift */; };
 		D2C956C721B765D100B90842 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C621B765D100B90842 /* SignUpViewController.swift */; };
 		D2C956CA21B7660700B90842 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956C921B7660700B90842 /* SignUpViewModel.swift */; };
-		D2C956D021B8A9C900B90842 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956CF21B8A9C900B90842 /* LoginViewController.swift */; };
-		D2C956D221B8A9DB00B90842 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956D121B8A9DB00B90842 /* LoginViewModel.swift */; };
+		D2C956D021B8A9C900B90842 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956CF21B8A9C900B90842 /* SignInViewController.swift */; };
+		D2C956D221B8A9DB00B90842 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956D121B8A9DB00B90842 /* SignInViewModel.swift */; };
 		D2C956D421B8AA2900B90842 /* InitialLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956D321B8AA2900B90842 /* InitialLaunchViewController.swift */; };
 		D2C956D721B8AA4500B90842 /* InitialLaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956D621B8AA4500B90842 /* InitialLaunchViewModel.swift */; };
 		F33226647B50A28647326C71 /* Pods_Frames_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784D0A24E22EA5CE09FAF03D /* Pods_Frames_App.framework */; };
@@ -257,8 +257,8 @@
 		D2C956C321B7653600B90842 /* ObservableTypes + Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableTypes + Extras.swift"; sourceTree = "<group>"; };
 		D2C956C621B765D100B90842 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D2C956C921B7660700B90842 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		D2C956CF21B8A9C900B90842 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		D2C956D121B8A9DB00B90842 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D2C956CF21B8A9C900B90842 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D2C956D121B8A9DB00B90842 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		D2C956D321B8AA2900B90842 /* InitialLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLaunchViewController.swift; sourceTree = "<group>"; };
 		D2C956D621B8AA4500B90842 /* InitialLaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLaunchViewModel.swift; sourceTree = "<group>"; };
 		E976B25A8E8AA910702EBC93 /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
@@ -679,8 +679,8 @@
 		D2C956D521B8AA3100B90842 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				D2C956D121B8A9DB00B90842 /* LoginViewModel.swift */,
-				D2C956CF21B8A9C900B90842 /* LoginViewController.swift */,
+				D2C956D121B8A9DB00B90842 /* SignInViewModel.swift */,
+				D2C956CF21B8A9C900B90842 /* SignInViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1369,9 +1369,9 @@
 				D2C956BA21B7623100B90842 /* Date+Extentions.swift in Sources */,
 				D2C956BE21B7623100B90842 /* Int+Extentions.swift in Sources */,
 				D21247FB21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift in Sources */,
-				D2C956D221B8A9DB00B90842 /* LoginViewModel.swift in Sources */,
+				D2C956D221B8A9DB00B90842 /* SignInViewModel.swift in Sources */,
 				D234E01121A3BDBB00769C12 /* AppDelegate.swift in Sources */,
-				D2C956D021B8A9C900B90842 /* LoginViewController.swift in Sources */,
+				D2C956D021B8A9C900B90842 /* SignInViewController.swift in Sources */,
 				D234E09A21A3D8CA00769C12 /* DiscoverPageViewModel.swift in Sources */,
 				D21247F921BA4B1A0025AC3F /* FramesPickerView.swift in Sources */,
 				D212480121BB5A2A0025AC3F /* FramesButton.swift in Sources */,

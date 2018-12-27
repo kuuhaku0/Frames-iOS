@@ -14,21 +14,18 @@ import RxCocoa
 final class InitialLaunchViewModel: ViewModelType {
 
     struct Input {
-        let signUpTigger: Driver<Void>
-        let signInTrigger: Driver<Void>
+        let signUpTigger: Observable<Void>
+        let signInTrigger: Observable<Void>
     }
     
     struct Output {
-        let signUp: Driver<Void>
-        let signIn: Driver<Void>
         let images$: Driver<[UIImage]>
     }
     
-    private let coordinator: PreLoginFlowCoordinator
+    let didTapSignIn = PublishSubject<Void>()
+    let didTapSignUp = PublishSubject<Void>()
     
-    init(coordinator: PreLoginFlowCoordinator) {
-        self.coordinator = coordinator
-    }
+    let disposeBag = DisposeBag()
     
     func transform(input: Input) -> Output {
         
@@ -40,17 +37,15 @@ final class InitialLaunchViewModel: ViewModelType {
                                                      UIImage(imageLiteralResourceName: "Logo2"),
                                                      UIImage(imageLiteralResourceName: "Logo")])
         
-        let signUp = input
-            .signUpTigger
-            .do(onNext: coordinator.showLogin)
+        input.signInTrigger
+            .bind(to: didTapSignIn)
+            .disposed(by: disposeBag)
         
-        let signIn = input
-            .signInTrigger
-            .do(onNext: coordinator.showSignUp)
+        input.signUpTigger
+            .bind(to: didTapSignUp)
+            .disposed(by: disposeBag)
         
-        return Output(signUp: signUp,
-                      signIn: signIn,
-                      images$: images)
+        return Output(images$: images)
     }
     
 }

@@ -10,9 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LoginViewController: UIViewController, StoryboardInitializable {
+class SignInViewController: UIViewController, StoryboardInitializable {
     
-    var viewModel: LoginViewModel!
+    var viewModel: SignInViewModel!
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {

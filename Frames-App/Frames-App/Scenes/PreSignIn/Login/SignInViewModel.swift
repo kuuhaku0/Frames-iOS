@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LoginViewModel: ViewModelType {
+class SignInViewModel: ViewModelType {
     
     struct Input {
         

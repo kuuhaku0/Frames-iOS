@@ -56,18 +56,11 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable, Fr
     
     private func bindViewModel() {
         assert(viewModel != nil)
-        let input = InitialLaunchViewModel.Input(signUpTigger: signUpButton.rx.tap.asDriver(),
-                                                 signInTrigger: signInButton.rx.tap.asDriver())
+        
+        let input = InitialLaunchViewModel.Input(signUpTigger: signUpButton.rx.tap.asObservable(),
+                                                 signInTrigger: signInButton.rx.tap.asObservable())
         
         let output = viewModel.transform(input: input)
-        
-        output.signIn
-            .drive()
-            .disposed(by: disposeBag)
-        
-        output.signUp
-            .drive()
-            .disposed(by: disposeBag)
         
         output.images$.drive(framesVC.collectionView.rx
             .items(cellIdentifier: NSStringFromClass(FramesPickerViewCell.self), cellType: FramesPickerViewCell.self)) { tv, viewModel, cell in
