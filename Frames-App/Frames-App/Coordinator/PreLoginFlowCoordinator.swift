@@ -21,7 +21,6 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
         let viewModel = InitialLaunchViewModel()
         let vc = InitialLaunchViewController.initFromStoryboard(name: InitialLaunchViewController.storyboardIdentifier)
         let navigationController = UINavigationController(rootViewController: vc)
-        
         navigationController.navigationBar.backItem?.backBarButtonItem?.tintColor = .black
         navigationController.navigationItem.backBarButtonItem?.title = ""
         
@@ -51,6 +50,12 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
 
         vc.viewModel = viewModel
         
+        viewModel.didTapSignIn
+            .subscribe(onNext: { [weak self] in
+                self?.showMainApp()
+            })
+            .disposed(by: disposeBag)
+        
         navigationController.pushViewController(vc, animated: true)
     }
 
@@ -61,5 +66,12 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
         vc.viewModel = viewModel
 
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showMainApp() {
+        let appTabBarCoordinator = AppTabBarCoordinator(window: window)
+        coordinate(to: appTabBarCoordinator)
+            .subscribe()
+            .disposed(by: disposeBag)
     }
 }

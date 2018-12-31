@@ -16,6 +16,7 @@
 		D200520321D57A64000CCC3F /* SignInViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D200520221D57A64000CCC3F /* SignInViewController.storyboard */; };
 		D200520521D58D78000CCC3F /* FramesTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200520421D58D78000CCC3F /* FramesTextFieldCell.swift */; };
 		D200520D21DACC80000CCC3F /* AppTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200520C21DACC80000CCC3F /* AppTabBarCoordinator.swift */; };
+		D200520F21DADAA5000CCC3F /* MainFeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D200520E21DADAA5000CCC3F /* MainFeedViewController.storyboard */; };
 		D21247F921BA4B1A0025AC3F /* FramesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */; };
 		D21247FB21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247FA21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift */; };
 		D21247FD21BB4EF90025AC3F /* FramesPickerViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247FC21BB4EF90025AC3F /* FramesPickerViewLayout.swift */; };
@@ -189,6 +190,7 @@
 		D200520221D57A64000CCC3F /* SignInViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInViewController.storyboard; sourceTree = "<group>"; };
 		D200520421D58D78000CCC3F /* FramesTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesTextFieldCell.swift; sourceTree = "<group>"; };
 		D200520C21DACC80000CCC3F /* AppTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarCoordinator.swift; sourceTree = "<group>"; };
+		D200520E21DADAA5000CCC3F /* MainFeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainFeedViewController.storyboard; sourceTree = "<group>"; };
 		D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerView.swift; sourceTree = "<group>"; };
 		D21247FA21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		D21247FC21BB4EF90025AC3F /* FramesPickerViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerViewLayout.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 		D234E08721A3D0F100769C12 /* MainFeed */ = {
 			isa = PBXGroup;
 			children = (
+				D200520E21DADAA5000CCC3F /* MainFeedViewController.storyboard */,
 				D234E09521A3D85800769C12 /* MainFeedViewController.swift */,
 				D234E09321A3D80700769C12 /* MainFeedViewModel.swift */,
 			);
@@ -966,6 +969,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D200520F21DADAA5000CCC3F /* MainFeedViewController.storyboard in Resources */,
 				D234E01B21A3BDBC00769C12 /* LaunchScreen.storyboard in Resources */,
 				D200520321D57A64000CCC3F /* SignInViewController.storyboard in Resources */,
 				D235492E21C210AF00635A04 /* SignUpViewController.storyboard in Resources */,

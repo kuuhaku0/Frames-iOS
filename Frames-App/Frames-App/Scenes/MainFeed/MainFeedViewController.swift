@@ -9,7 +9,7 @@
 import UIKit
 import AWSAppSync
 
-class MainFeedViewController: UIViewController {
+class MainFeedViewController: UIViewController, StoryboardInitializable {
     
     var viewModel: MainFeedViewModel!
     var appSyncClient: AWSAppSyncClient?
