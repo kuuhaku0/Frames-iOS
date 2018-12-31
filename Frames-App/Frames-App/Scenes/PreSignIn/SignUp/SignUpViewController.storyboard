@@ -17,13 +17,48 @@
                     <view key="view" contentMode="scaleToFill" id="Mh8-UC-AXO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vmz-LZ-Gxi">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRn-wa-fTZ" customClass="FramesButton" customModule="Frames_App" customModuleProvider="target">
+                                <rect key="frame" x="15" y="558" width="345" height="45"/>
+                                <state key="normal" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Create Account"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="By creating an account, you’re agreeing to Frames’s         Terms of Use &amp; Privacy Policy " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJG-2F-6HA">
+                                <rect key="frame" x="15" y="618" width="345" height="29"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vmz-LZ-Gxi" firstAttribute="bottom" secondItem="Ghe-tp-ynk" secondAttribute="bottom" id="5Sx-Fu-JZs"/>
+                            <constraint firstItem="Vmz-LZ-Gxi" firstAttribute="leading" secondItem="Ghe-tp-ynk" secondAttribute="leading" id="ErJ-td-nM2"/>
+                            <constraint firstItem="Ghe-tp-ynk" firstAttribute="bottom" secondItem="zJG-2F-6HA" secondAttribute="bottom" constant="20" id="GBg-e9-z0C"/>
+                            <constraint firstItem="zJG-2F-6HA" firstAttribute="centerX" secondItem="Mh8-UC-AXO" secondAttribute="centerX" id="QNA-mt-B3c"/>
+                            <constraint firstItem="Vmz-LZ-Gxi" firstAttribute="top" secondItem="Ghe-tp-ynk" secondAttribute="top" id="fFK-am-PiA"/>
+                            <constraint firstAttribute="trailing" secondItem="Vmz-LZ-Gxi" secondAttribute="trailing" id="kga-ol-bPb"/>
+                            <constraint firstItem="NRn-wa-fTZ" firstAttribute="centerX" secondItem="Mh8-UC-AXO" secondAttribute="centerX" id="r2P-RN-bEY"/>
+                            <constraint firstItem="zJG-2F-6HA" firstAttribute="top" secondItem="NRn-wa-fTZ" secondAttribute="bottom" constant="15" id="y3L-fE-Or3"/>
+                            <constraint firstItem="zJG-2F-6HA" firstAttribute="width" secondItem="NRn-wa-fTZ" secondAttribute="width" id="yyJ-uu-b5V"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ghe-tp-ynk"/>
                     </view>
+                    <connections>
+                        <outlet property="createAccountButton" destination="NRn-wa-fTZ" id="LlT-Zc-ZUv"/>
+                        <outlet property="disclaimerLabel" destination="zJG-2F-6HA" id="iEI-oY-RNY"/>
+                        <outlet property="tableView" destination="Vmz-LZ-Gxi" id="PPV-74-E2V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wk8-rc-7cL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271" y="74"/>
+            <point key="canvasLocation" x="-271.19999999999999" y="73.313343328335833"/>
         </scene>
     </scenes>
 </document>

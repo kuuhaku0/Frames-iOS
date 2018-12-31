@@ -12,20 +12,29 @@ import RxCocoa
 
 class SignInViewController: UIViewController, StoryboardInitializable {
     
+    @IBOutlet weak var loginTextField: FramesTextField!
+    @IBOutlet weak var passwordTextField: FramesTextField!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var signInButton: FramesButton!
+    
     var viewModel: SignInViewModel!
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setup()
+        bindViewModel()
+    }
+    
+    private func setup() {
+        title = "Sign In"
     }
     
     private func bindViewModel() {
         assert(viewModel != nil)
         
-        let input = UserProfileViewModel.Input()
-        let output = UserProfileViewModel.Output()
+        let input = SignInViewModel.Input(signInTrigger: signInButton.rx.tap.asObservable())
         
+        let output = viewModel.transform(input: input)
     }
 }

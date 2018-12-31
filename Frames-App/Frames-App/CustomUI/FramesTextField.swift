@@ -76,9 +76,9 @@ class FramesTextField: UITextField {
         return textRect(forBounds: bounds)
     }
     
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: bounds.width, height: calculateHeight())
-    }
+//    override var intrinsicContentSize: CGSize {
+//        return CGSize(width: bounds.width, height: calculateHeight())
+//    }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)

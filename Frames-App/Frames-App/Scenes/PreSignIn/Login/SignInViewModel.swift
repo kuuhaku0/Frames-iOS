@@ -7,18 +7,28 @@
 //
 
 import Foundation
+import RxSwift
 
 class SignInViewModel: ViewModelType {
     
     struct Input {
-        
+        let signInTrigger: Observable<Void>
     }
     
     struct Output {
         
     }
     
+    let didTapSignIn = PublishSubject<Void>()
+    
+    let disposeBag = DisposeBag()
+    
     func transform(input: Input) -> Output {
+        
+        input.signInTrigger
+            .bind(to: didTapSignIn)
+            .disposed(by: disposeBag)
+        
         return Output()
     }
     

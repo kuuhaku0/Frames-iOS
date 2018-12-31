@@ -13,6 +13,9 @@
 		ACC1B036B728FC2D2754EF98 /* Pods_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B185D1DB759DD656CC04A18F /* Pods_DomainTests.framework */; };
 		D200462221A6927900CC700E /* CommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200462121A6927900CC700E /* CommentUseCase.swift */; };
 		D200462621A73D5500CC700E /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D200462521A73D5500CC700E /* awsconfiguration.json */; };
+		D200520321D57A64000CCC3F /* SignInViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D200520221D57A64000CCC3F /* SignInViewController.storyboard */; };
+		D200520521D58D78000CCC3F /* FramesTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200520421D58D78000CCC3F /* FramesTextFieldCell.swift */; };
+		D200520D21DACC80000CCC3F /* AppTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200520C21DACC80000CCC3F /* AppTabBarCoordinator.swift */; };
 		D21247F921BA4B1A0025AC3F /* FramesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */; };
 		D21247FB21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247FA21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift */; };
 		D21247FD21BB4EF90025AC3F /* FramesPickerViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247FC21BB4EF90025AC3F /* FramesPickerViewLayout.swift */; };
@@ -183,6 +186,9 @@
 		C8331A9B297CDB5C7361783E /* Pods-NetworkPlatformTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkPlatformTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkPlatformTests/Pods-NetworkPlatformTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D200462121A6927900CC700E /* CommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUseCase.swift; sourceTree = "<group>"; };
 		D200462521A73D5500CC700E /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		D200520221D57A64000CCC3F /* SignInViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInViewController.storyboard; sourceTree = "<group>"; };
+		D200520421D58D78000CCC3F /* FramesTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesTextFieldCell.swift; sourceTree = "<group>"; };
+		D200520C21DACC80000CCC3F /* AppTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarCoordinator.swift; sourceTree = "<group>"; };
 		D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerView.swift; sourceTree = "<group>"; };
 		D21247FA21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		D21247FC21BB4EF90025AC3F /* FramesPickerViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerViewLayout.swift; sourceTree = "<group>"; };
@@ -617,6 +623,7 @@
 			children = (
 				D235492F21C35BBB00635A04 /* BaseCoordinator.swift */,
 				D235493221C36B6B00635A04 /* PreLoginFlowCoordinator.swift */,
+				D200520C21DACC80000CCC3F /* AppTabBarCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -639,6 +646,7 @@
 				D21247FE21BB57B20025AC3F /* FramesSegmentedControl.swift */,
 				D212480021BB5A2A0025AC3F /* FramesButton.swift */,
 				D2A72C9021BF47F600464DAF /* FramesTextField.swift */,
+				D200520421D58D78000CCC3F /* FramesTextFieldCell.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -679,6 +687,7 @@
 		D2C956D521B8AA3100B90842 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				D200520221D57A64000CCC3F /* SignInViewController.storyboard */,
 				D2C956D121B8A9DB00B90842 /* SignInViewModel.swift */,
 				D2C956CF21B8A9C900B90842 /* SignInViewController.swift */,
 			);
@@ -958,6 +967,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D234E01B21A3BDBC00769C12 /* LaunchScreen.storyboard in Resources */,
+				D200520321D57A64000CCC3F /* SignInViewController.storyboard in Resources */,
 				D235492E21C210AF00635A04 /* SignUpViewController.storyboard in Resources */,
 				D234E01821A3BDBC00769C12 /* Assets.xcassets in Resources */,
 				D234E01621A3BDBB00769C12 /* InitialLaunchViewController.storyboard in Resources */,
@@ -1368,6 +1378,7 @@
 				D2C956CA21B7660700B90842 /* SignUpViewModel.swift in Sources */,
 				D2C956BA21B7623100B90842 /* Date+Extentions.swift in Sources */,
 				D2C956BE21B7623100B90842 /* Int+Extentions.swift in Sources */,
+				D200520D21DACC80000CCC3F /* AppTabBarCoordinator.swift in Sources */,
 				D21247FB21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift in Sources */,
 				D2C956D221B8A9DB00B90842 /* SignInViewModel.swift in Sources */,
 				D234E01121A3BDBB00769C12 /* AppDelegate.swift in Sources */,
@@ -1384,6 +1395,7 @@
 				D2C956C421B7653600B90842 /* ObservableTypes + Extras.swift in Sources */,
 				D2C956B821B7623100B90842 /* UIView+Extentions.swift in Sources */,
 				D234E09621A3D85800769C12 /* MainFeedViewController.swift in Sources */,
+				D200520521D58D78000CCC3F /* FramesTextFieldCell.swift in Sources */,
 				D2C956C721B765D100B90842 /* SignUpViewController.swift in Sources */,
 				D21247FF21BB57B20025AC3F /* FramesSegmentedControl.swift in Sources */,
 			);

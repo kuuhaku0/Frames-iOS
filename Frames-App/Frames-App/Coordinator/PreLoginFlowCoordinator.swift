@@ -22,10 +22,15 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
         let vc = InitialLaunchViewController.initFromStoryboard(name: InitialLaunchViewController.storyboardIdentifier)
         let navigationController = UINavigationController(rootViewController: vc)
         
+        navigationController.navigationBar.backItem?.backBarButtonItem?.tintColor = .black
+        navigationController.navigationItem.backBarButtonItem?.title = ""
+        
         vc.viewModel = viewModel
         
         viewModel.didTapSignIn
-            .subscribe(onNext: {[weak self] in self?.showSignIn(in: navigationController) })
+            .subscribe(onNext: { [weak self] in
+                self?.showSignIn(in: navigationController)
+            })
             .disposed(by: disposeBag)
         
         viewModel.didTapSignUp
@@ -45,7 +50,7 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
         let vc = SignInViewController.initFromStoryboard(name: SignInViewController.storyboardIdentifier)
 
         vc.viewModel = viewModel
-
+        
         navigationController.pushViewController(vc, animated: true)
     }
 
