@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, StoryboardInitializable {
     
     var viewModel: UserProfileViewModel!
 

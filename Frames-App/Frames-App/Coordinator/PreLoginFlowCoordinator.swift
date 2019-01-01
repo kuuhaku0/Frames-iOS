@@ -41,7 +41,7 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     
-        return Observable.merge(goToMainApp)
+        return goToMainApp
             .do(onNext: { [weak self] in
                 self?.showMainApp()
             })

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiscoverPageViewController: UIViewController {
+class DiscoverPageViewController: UIViewController, StoryboardInitializable {
 
     var viewModel: DiscoverPageViewModel!
     

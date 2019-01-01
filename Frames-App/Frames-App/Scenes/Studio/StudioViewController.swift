@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StudioViewController: UIViewController {
+class StudioViewController: UIViewController, StoryboardInitializable {
     
     var viewModel: StudioViewModel!
 
