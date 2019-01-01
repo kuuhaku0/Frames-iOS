@@ -24,6 +24,7 @@
 		D200521921DB0E2D000CCC3F /* DiscoverPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200521821DB0E2D000CCC3F /* DiscoverPageCoordinator.swift */; };
 		D200521B21DB0E3D000CCC3F /* UserProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200521A21DB0E3D000CCC3F /* UserProfileCoordinator.swift */; };
 		D200521D21DB0E4E000CCC3F /* MainFeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200521C21DB0E4E000CCC3F /* MainFeedCoordinator.swift */; };
+		D200522021DB14A5000CCC3F /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200521F21DB14A5000CCC3F /* StoryboardInitializable.swift */; };
 		D21247F921BA4B1A0025AC3F /* FramesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */; };
 		D21247FB21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247FA21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift */; };
 		D21247FD21BB4EF90025AC3F /* FramesPickerViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247FC21BB4EF90025AC3F /* FramesPickerViewLayout.swift */; };
@@ -77,7 +78,6 @@
 		D235492E21C210AF00635A04 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D235492D21C210AF00635A04 /* SignUpViewController.storyboard */; };
 		D235493021C35BBB00635A04 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D235492F21C35BBB00635A04 /* BaseCoordinator.swift */; };
 		D235493321C36B6B00635A04 /* PreLoginFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D235493221C36B6B00635A04 /* PreLoginFlowCoordinator.swift */; };
-		D235493521C3707D00635A04 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D235493421C3707D00635A04 /* StoryboardInitializable.swift */; };
 		D2A72C9121BF47F600464DAF /* FramesTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A72C9021BF47F600464DAF /* FramesTextField.swift */; };
 		D2A72D0921C1E74600464DAF /* InitialLaunchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A72D0821C1E74600464DAF /* InitialLaunchUseCase.swift */; };
 		D2C956A521AB442E00B90842 /* WaterFallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C956A421AB442E00B90842 /* WaterFallLayout.swift */; };
@@ -205,6 +205,7 @@
 		D200521821DB0E2D000CCC3F /* DiscoverPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPageCoordinator.swift; sourceTree = "<group>"; };
 		D200521A21DB0E3D000CCC3F /* UserProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCoordinator.swift; sourceTree = "<group>"; };
 		D200521C21DB0E4E000CCC3F /* MainFeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedCoordinator.swift; sourceTree = "<group>"; };
+		D200521F21DB14A5000CCC3F /* StoryboardInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerView.swift; sourceTree = "<group>"; };
 		D21247FA21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		D21247FC21BB4EF90025AC3F /* FramesPickerViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerViewLayout.swift; sourceTree = "<group>"; };
@@ -265,7 +266,6 @@
 		D235492D21C210AF00635A04 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 		D235492F21C35BBB00635A04 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		D235493221C36B6B00635A04 /* PreLoginFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLoginFlowCoordinator.swift; sourceTree = "<group>"; };
-		D235493421C3707D00635A04 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		D2A72C9021BF47F600464DAF /* FramesTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesTextField.swift; sourceTree = "<group>"; };
 		D2A72D0821C1E74600464DAF /* InitialLaunchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLaunchUseCase.swift; sourceTree = "<group>"; };
 		D2C956A421AB442E00B90842 /* WaterFallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallLayout.swift; sourceTree = "<group>"; };
@@ -507,9 +507,9 @@
 		D234E08421A3D07600769C12 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				D235493421C3707D00635A04 /* StoryboardInitializable.swift */,
 				D2C956C121B762AA00B90842 /* Constants.swift */,
 				D234E08221A3D03700769C12 /* ViewModelType.swift */,
+				D200521F21DB14A5000CCC3F /* StoryboardInitializable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1411,6 +1411,7 @@
 				D2C956BD21B7623100B90842 /* URL.swift in Sources */,
 				D2A72C9121BF47F600464DAF /* FramesTextField.swift in Sources */,
 				D21247FD21BB4EF90025AC3F /* FramesPickerViewLayout.swift in Sources */,
+				D200522021DB14A5000CCC3F /* StoryboardInitializable.swift in Sources */,
 				D2C956CA21B7660700B90842 /* SignUpViewModel.swift in Sources */,
 				D2C956BA21B7623100B90842 /* Date+Extentions.swift in Sources */,
 				D2C956BE21B7623100B90842 /* Int+Extentions.swift in Sources */,
@@ -1426,7 +1427,6 @@
 				D200521B21DB0E3D000CCC3F /* UserProfileCoordinator.swift in Sources */,
 				D2C956B921B7623100B90842 /* String+Extentions.swift in Sources */,
 				D212480321BB5F410025AC3F /* UIFont+Extensions.swift in Sources */,
-				D235493521C3707D00635A04 /* StoryboardInitializable.swift in Sources */,
 				D200521721DB0E20000CCC3F /* StudioCoordinator.swift in Sources */,
 				D234E09421A3D80700769C12 /* MainFeedViewModel.swift in Sources */,
 				D235493021C35BBB00635A04 /* BaseCoordinator.swift in Sources */,
