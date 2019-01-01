@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol StoryboardInitializable {
+protocol StoryboardInitializable where Self: UIViewController {
     static var storyboardIdentifier: String { get }
 }
 
-extension StoryboardInitializable where Self: UIViewController {
+extension StoryboardInitializable {
     
     static var storyboardIdentifier: String {
         return String(describing: Self.self)
