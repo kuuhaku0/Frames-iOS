@@ -60,7 +60,7 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
         navigationController.pushViewController(vc, animated: true)
     }
 
-    func showSignUp(in navigationController: UINavigationController ) {
+    func showSignUp(in navigationController: UINavigationController) {
         let viewModel = SignUpViewModel()
         let vc = SignUpViewController.initFromStoryboard()
 
