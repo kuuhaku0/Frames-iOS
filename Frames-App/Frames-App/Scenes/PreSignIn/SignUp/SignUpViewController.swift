@@ -47,6 +47,5 @@ class SignUpViewController: UIViewController, StoryboardInitializable {
                 cell.configure(title: vm.title, description: vm.description, placeHolder: vm.placeholder)
         }
         .disposed(by: disposeBag)
-        
     }
 }

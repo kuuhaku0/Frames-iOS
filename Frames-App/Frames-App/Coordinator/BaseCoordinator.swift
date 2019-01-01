@@ -27,7 +27,6 @@ class BaseCoordinator<ResultType> {
     /// Value type is `Any` because Swift doesn't allow to store generic types in the array.
     private var childCoordinators = [UUID: Any]()
     
-    
     /// Stores coordinator to the `childCoordinators` dictionary.
     ///
     /// - Parameter coordinator: Child coordinator to store.
@@ -51,7 +50,9 @@ class BaseCoordinator<ResultType> {
     func coordinate<T>(to coordinator: BaseCoordinator<T>) -> Observable<T> {
         store(coordinator: coordinator)
         return coordinator.start()
-            .do(onNext: { [weak self] _ in self?.free(coordinator: coordinator) })
+            .do(onNext: { [weak self] _ in
+                self?.free(coordinator: coordinator)
+            })
     }
     
     /// Starts job of the coordinator.

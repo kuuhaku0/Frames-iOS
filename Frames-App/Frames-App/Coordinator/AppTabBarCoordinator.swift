@@ -18,7 +18,9 @@ class AppTabBarCoordinator: BaseCoordinator<Void> {
     }
   
     override func start() -> Observable<Void> {
+        
         let tabBar = UITabBarController()
+        let nav = UINavigationController(rootViewController: tabBar)
         
         let mainFeedVC = MainFeedViewController.initFromStoryboard(name: "MainFeedViewController")
         let mainFeedVM = MainFeedViewModel()
@@ -27,7 +29,7 @@ class AppTabBarCoordinator: BaseCoordinator<Void> {
         
         tabBar.viewControllers = [mainFeedVC]
         
-        window.rootViewController = tabBar
+        window.rootViewController = nav
         window.makeKeyAndVisible()
         
         return Observable.never()

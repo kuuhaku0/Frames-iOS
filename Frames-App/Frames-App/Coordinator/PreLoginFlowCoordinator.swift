@@ -17,13 +17,13 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
         self.window = window
     }
     
+    let goToMainApp = PublishSubject<Void>()
+    
     override func start() -> Observable<Void> {
         let viewModel = InitialLaunchViewModel()
         let vc = InitialLaunchViewController.initFromStoryboard(name: InitialLaunchViewController.storyboardIdentifier)
         let navigationController = UINavigationController(rootViewController: vc)
-        navigationController.navigationBar.backItem?.backBarButtonItem?.tintColor = .black
-        navigationController.navigationItem.backBarButtonItem?.title = ""
-        
+
         vc.viewModel = viewModel
         
         viewModel.didTapSignIn
@@ -41,7 +41,10 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     
-        return Observable.never()
+        return Observable.merge(goToMainApp)
+            .do(onNext: { [weak self] in
+                self?.showMainApp()
+            })
     }
     
     func showSignIn(in navigationController: UINavigationController) {
@@ -51,9 +54,7 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
         vc.viewModel = viewModel
         
         viewModel.didTapSignIn
-            .subscribe(onNext: { [weak self] in
-                self?.showMainApp()
-            })
+            .bind(to: goToMainApp)
             .disposed(by: disposeBag)
         
         navigationController.pushViewController(vc, animated: true)
@@ -70,6 +71,10 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
     
     func showMainApp() {
         let appTabBarCoordinator = AppTabBarCoordinator(window: window)
+        
+        window.rootViewController?.children.forEach { $0.removeFromParent() }
+        window.rootViewController = nil
+        
         coordinate(to: appTabBarCoordinator)
             .subscribe()
             .disposed(by: disposeBag)

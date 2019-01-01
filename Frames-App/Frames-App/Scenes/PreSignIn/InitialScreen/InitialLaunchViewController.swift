@@ -89,4 +89,8 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable, Fr
             })
         })
     }
+    
+    deinit {
+        print("InitialLaunchViewController dealloc")
+    }
 }
