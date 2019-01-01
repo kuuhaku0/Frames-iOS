@@ -21,7 +21,7 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
     
     override func start() -> Observable<Void> {
         let viewModel = InitialLaunchViewModel()
-        let vc = InitialLaunchViewController.initFromStoryboard(name: InitialLaunchViewController.storyboardIdentifier)
+        let vc = InitialLaunchViewController.initFromStoryboard()
         let navigationController = UINavigationController(rootViewController: vc)
 
         vc.viewModel = viewModel
@@ -49,7 +49,7 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
     
     func showSignIn(in navigationController: UINavigationController) {
         let viewModel = SignInViewModel()
-        let vc = SignInViewController.initFromStoryboard(name: SignInViewController.storyboardIdentifier)
+        let vc = SignInViewController.initFromStoryboard()
 
         vc.viewModel = viewModel
         
@@ -62,7 +62,7 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
 
     func showSignUp(in navigationController: UINavigationController ) {
         let viewModel = SignUpViewModel()
-        let vc = SignUpViewController.initFromStoryboard(name: SignUpViewController.storyboardIdentifier)
+        let vc = SignUpViewController.initFromStoryboard()
 
         vc.viewModel = viewModel
 

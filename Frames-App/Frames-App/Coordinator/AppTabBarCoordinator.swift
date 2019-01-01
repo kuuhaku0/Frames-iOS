@@ -20,56 +20,59 @@ class AppTabBarCoordinator: BaseCoordinator<Void> {
     override func start() -> Observable<Void> {
         
         let tabBar = UITabBarController()
-        let nav = UINavigationController(rootViewController: tabBar)
         
         tabBar.viewControllers = [createMainFeedVC(),
                                   createDiscoveryPageVC(),
                                   createStudioVC(),
                                   createUserProfileVC()]
         
-        window.rootViewController = nav
+        window.rootViewController = tabBar
         window.makeKeyAndVisible()
         
         return Observable.never()
     }
     
     private func createMainFeedVC() -> UIViewController {
-        let vc = MainFeedViewController.initFromStoryboard(name: MainFeedViewController.storyboardIdentifier)
-        let vm = MainFeedViewModel()
+        let nav = UINavigationController()
         
-        vc.viewModel = vm
-        vc.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
+        nav.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
+        coordinate(to: MainFeedCoordinator(rootNavigationController: nav))
+            .subscribe()
+            .disposed(by: disposeBag)
         
-        return vc
+        return nav
     }
     
     private func createDiscoveryPageVC() -> UIViewController {
-        let vc = DiscoverPageViewController.initFromStoryboard(name: DiscoverPageViewController.storyboardIdentifier)
-        let vm = DiscoverPageViewModel()
+        let nav = UINavigationController()
         
-        vc.viewModel = vm
-        vc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        nav.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        coordinate(to: DiscoverPageCoordinator(rootNavigationController: nav))
+            .subscribe()
+            .disposed(by: disposeBag)
         
-        return vc
+        return nav
     }
     
     private func createStudioVC() -> UIViewController {
-        let vc = StudioViewController.initFromStoryboard(name: StudioViewController.storyboardIdentifier)
-        let vm = StudioViewModel()
+        let nav = UINavigationController()
         
-        vc.viewModel = vm
-        vc.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 2)
+        nav.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 2)
+        coordinate(to: StudioCoordinator(rootNavigationController: nav))
+            .subscribe()
+            .disposed(by: disposeBag)
         
-        return vc
+        return nav
     }
     
     private func createUserProfileVC() -> UIViewController {
-        let vc = UserProfileViewController.initFromStoryboard(name: UserProfileViewController.storyboardIdentifier)
-        let vm = UserProfileViewModel()
+        let nav = UINavigationController()
+
+        nav.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
+        coordinate(to: UserProfileCoordinator(rootNavigationController: nav))
+            .subscribe()
+            .disposed(by: disposeBag)
         
-        vc.viewModel = vm
-        vc.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
-        
-        return vc
+        return nav
     }
 }

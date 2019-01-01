@@ -20,6 +20,10 @@
 		D200521121DB0CA5000CCC3F /* UserProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D200521021DB0CA5000CCC3F /* UserProfileViewController.storyboard */; };
 		D200521321DB0CC5000CCC3F /* DiscoverPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D200521221DB0CC5000CCC3F /* DiscoverPageViewController.storyboard */; };
 		D200521521DB0CE2000CCC3F /* StudioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D200521421DB0CE2000CCC3F /* StudioViewController.storyboard */; };
+		D200521721DB0E20000CCC3F /* StudioCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200521621DB0E20000CCC3F /* StudioCoordinator.swift */; };
+		D200521921DB0E2D000CCC3F /* DiscoverPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200521821DB0E2D000CCC3F /* DiscoverPageCoordinator.swift */; };
+		D200521B21DB0E3D000CCC3F /* UserProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200521A21DB0E3D000CCC3F /* UserProfileCoordinator.swift */; };
+		D200521D21DB0E4E000CCC3F /* MainFeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D200521C21DB0E4E000CCC3F /* MainFeedCoordinator.swift */; };
 		D21247F921BA4B1A0025AC3F /* FramesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */; };
 		D21247FB21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247FA21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift */; };
 		D21247FD21BB4EF90025AC3F /* FramesPickerViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21247FC21BB4EF90025AC3F /* FramesPickerViewLayout.swift */; };
@@ -197,6 +201,10 @@
 		D200521021DB0CA5000CCC3F /* UserProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileViewController.storyboard; sourceTree = "<group>"; };
 		D200521221DB0CC5000CCC3F /* DiscoverPageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscoverPageViewController.storyboard; sourceTree = "<group>"; };
 		D200521421DB0CE2000CCC3F /* StudioViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudioViewController.storyboard; sourceTree = "<group>"; };
+		D200521621DB0E20000CCC3F /* StudioCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioCoordinator.swift; sourceTree = "<group>"; };
+		D200521821DB0E2D000CCC3F /* DiscoverPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPageCoordinator.swift; sourceTree = "<group>"; };
+		D200521A21DB0E3D000CCC3F /* UserProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCoordinator.swift; sourceTree = "<group>"; };
+		D200521C21DB0E4E000CCC3F /* MainFeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedCoordinator.swift; sourceTree = "<group>"; };
 		D21247F821BA4B1A0025AC3F /* FramesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerView.swift; sourceTree = "<group>"; };
 		D21247FA21BB4ECD0025AC3F /* FramesPickerViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		D21247FC21BB4EF90025AC3F /* FramesPickerViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesPickerViewLayout.swift; sourceTree = "<group>"; };
@@ -358,6 +366,17 @@
 				EDBFE0F6FE42B6AEAF0F1BB4 /* Pods_NetworkPlatformTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D200521E21DB0E7C000CCC3F /* AppCoordinators */ = {
+			isa = PBXGroup;
+			children = (
+				D200521C21DB0E4E000CCC3F /* MainFeedCoordinator.swift */,
+				D200521621DB0E20000CCC3F /* StudioCoordinator.swift */,
+				D200521821DB0E2D000CCC3F /* DiscoverPageCoordinator.swift */,
+				D200521A21DB0E3D000CCC3F /* UserProfileCoordinator.swift */,
+			);
+			path = AppCoordinators;
 			sourceTree = "<group>";
 		};
 		D234E00421A3BDBB00769C12 = {
@@ -636,6 +655,7 @@
 				D235492F21C35BBB00635A04 /* BaseCoordinator.swift */,
 				D235493221C36B6B00635A04 /* PreLoginFlowCoordinator.swift */,
 				D200520C21DACC80000CCC3F /* AppTabBarCoordinator.swift */,
+				D200521E21DB0E7C000CCC3F /* AppCoordinators */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1402,13 +1422,17 @@
 				D234E09A21A3D8CA00769C12 /* DiscoverPageViewModel.swift in Sources */,
 				D21247F921BA4B1A0025AC3F /* FramesPickerView.swift in Sources */,
 				D212480121BB5A2A0025AC3F /* FramesButton.swift in Sources */,
+				D200521D21DB0E4E000CCC3F /* MainFeedCoordinator.swift in Sources */,
+				D200521B21DB0E3D000CCC3F /* UserProfileCoordinator.swift in Sources */,
 				D2C956B921B7623100B90842 /* String+Extentions.swift in Sources */,
 				D212480321BB5F410025AC3F /* UIFont+Extensions.swift in Sources */,
 				D235493521C3707D00635A04 /* StoryboardInitializable.swift in Sources */,
+				D200521721DB0E20000CCC3F /* StudioCoordinator.swift in Sources */,
 				D234E09421A3D80700769C12 /* MainFeedViewModel.swift in Sources */,
 				D235493021C35BBB00635A04 /* BaseCoordinator.swift in Sources */,
 				D234E09221A3D5C400769C12 /* UserProfileViewModel.swift in Sources */,
 				D2C956C421B7653600B90842 /* ObservableTypes + Extras.swift in Sources */,
+				D200521921DB0E2D000CCC3F /* DiscoverPageCoordinator.swift in Sources */,
 				D2C956B821B7623100B90842 /* UIView+Extentions.swift in Sources */,
 				D234E09621A3D85800769C12 /* MainFeedViewController.swift in Sources */,
 				D200520521D58D78000CCC3F /* FramesTextFieldCell.swift in Sources */,
