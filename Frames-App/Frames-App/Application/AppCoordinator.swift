@@ -24,6 +24,7 @@ class AppCoordinator: BaseCoordinator<Void> {
     
     override func start() -> Observable<Void> {
         // Manually calling start because coordinate(to: ) is not delloc coordinator tied to window
+        // Only use coordinate(to: ) for coordinators using rootViewController instead of window
         self.rootCoordinator = PreLoginFlowCoordinator(window: self.window)
         self.rootCoordinator?.start()
             .subscribe(onNext: {

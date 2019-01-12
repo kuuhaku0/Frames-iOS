@@ -91,6 +91,6 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable, Fr
     }
     
     deinit {
-        print("InitialLaunchViewController dealloc")
+        print("dealloc \(String(describing: self))")
     }
 }
