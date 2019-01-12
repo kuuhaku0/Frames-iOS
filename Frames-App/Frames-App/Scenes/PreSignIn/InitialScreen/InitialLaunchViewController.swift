@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class InitialLaunchViewController: UIViewController, StoryboardInitializable, FramesPickerViewDelegate {
-    
+     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpButton: FramesButton!
@@ -63,7 +63,7 @@ class InitialLaunchViewController: UIViewController, StoryboardInitializable, Fr
         let output = viewModel.transform(input: input)
         
         output.images$.drive(framesVC.collectionView.rx
-            .items(cellIdentifier: NSStringFromClass(FramesPickerViewCell.self), cellType: FramesPickerViewCell.self)) { tv, viewModel, cell in
+            .items(cellIdentifier: NSStringFromClass(FramesPickerViewCell.self), cellType: FramesPickerViewCell.self)) { cv, viewModel, cell in
                 cell.configure()
                 cell.imageView.image = viewModel
             }

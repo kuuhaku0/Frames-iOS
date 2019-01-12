@@ -79,4 +79,8 @@ class PreLoginFlowCoordinator: BaseCoordinator<Void> {
             .subscribe()
             .disposed(by: disposeBag)
     }
+    
+    deinit {
+        print("dealloc \(String.init(describing: self))")
+    }
 }

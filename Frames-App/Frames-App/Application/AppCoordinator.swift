@@ -15,6 +15,7 @@ class AppCoordinator: BaseCoordinator<Void> {
     
     private let window: UIWindow
     private let networkUseCaseProvider: Domain.UseCaseProvider
+    private var rootCoordinator: BaseCoordinator<Void>?
     
     init(window: UIWindow) {
         self.window = window
@@ -22,8 +23,14 @@ class AppCoordinator: BaseCoordinator<Void> {
     }
     
     override func start() -> Observable<Void> {
-        let inititalScreenCoordinator = PreLoginFlowCoordinator(window: window)
-        return coordinate(to: inititalScreenCoordinator)
+        // Manually calling start because coordinate(to: ) is not delloc coordinator tied to window
+        self.rootCoordinator = PreLoginFlowCoordinator(window: self.window)
+        self.rootCoordinator?.start()
+            .subscribe(onNext: {
+                self.rootCoordinator = nil
+            })
+            .disposed(by: disposeBag)
+        return Observable.never()
     }
     
 }
