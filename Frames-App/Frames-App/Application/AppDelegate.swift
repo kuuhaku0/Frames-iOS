@@ -30,13 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create AWSMobileClient to connect with AWS
         let databaseURL = URL(fileURLWithPath:NSTemporaryDirectory()).appendingPathComponent("frames-app")
 
-        do {
-            //AppSync configuration & client initialization
-            let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncClientInfo: AWSAppSyncClientInfo(),databaseURL: databaseURL)
-            appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
-        } catch {
-            print("Error initializing appsync client. \(error)")
-        }
+//        do {
+//            //AppSync configuration & client initialization
+//            let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncClientInfo: AWSAppSyncClientInfo(),databaseURL: databaseURL)
+//            appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
+//        } catch {
+//            print("Error initializing appsync client. \(error)")
+//        }
         
         return true
     }

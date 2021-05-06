@@ -1,13 +1,16 @@
 PODS:
   - Alamofire (4.7.3)
-  - AWSAppSync (2.6.24):
-    - AWSCore (~> 2.7.0)
-    - ReachabilitySwift (~> 4.0.0)
-    - SQLite.swift (= 0.11.4)
-  - AWSCore (2.7.3)
+  - AppSyncRealTimeClient (1.4.2):
+    - Starscream (~> 3.1.0)
+  - AWSAppSync (3.1.13):
+    - AppSyncRealTimeClient (~> 1.4)
+    - AWSCore (~> 2.21.0)
+    - ReachabilitySwift (~> 5.0.0)
+    - SQLite.swift (~> 0.12.2)
+  - AWSCore (2.21.1)
   - Differentiator (3.1.0)
   - Nimble (7.3.1)
-  - ReachabilitySwift (4.0.0)
+  - ReachabilitySwift (5.0.0)
   - RxAlamofire (4.3.0):
     - RxAlamofire/Core (= 4.3.0)
   - RxAlamofire/Core (4.3.0):
@@ -36,13 +39,14 @@ PODS:
   - RxTest (4.4.0):
     - RxAtomic (~> 4.4)
     - RxSwift (~> 4.0)
-  - SQLite.swift (0.11.4):
-    - SQLite.swift/standard (= 0.11.4)
-  - SQLite.swift/standard (0.11.4)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
+  - Starscream (3.1.1)
 
 DEPENDENCIES:
   - Alamofire
-  - AWSAppSync (~> 2.6.24)
+  - AWSAppSync
   - Nimble
   - RxAlamofire
   - RxBlocking
@@ -53,8 +57,9 @@ DEPENDENCIES:
   - RxTest
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
+    - AppSyncRealTimeClient
     - AWSAppSync
     - AWSCore
     - Differentiator
@@ -69,14 +74,16 @@ SPEC REPOS:
     - RxSwiftExt
     - RxTest
     - SQLite.swift
+    - Starscream
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  AWSAppSync: 88b8bcf344073d2cbb312bf6c7f3193cc0893d60
-  AWSCore: 02d9ae2b6c2aaba6077fee2b09b0a62fb9b80282
+  AppSyncRealTimeClient: 7fb160294d067b6c0c4b3c4ab91e953fd4cfba30
+  AWSAppSync: ac96ee8cacd4336cccdb6721967aa60fad748db9
+  AWSCore: a855a41cb2d43c8b538d3a80f8e855ed947f3d3c
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
-  ReachabilitySwift: e67b2cab4d5386053673d8a7421b5981e5f08259
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
@@ -85,8 +92,9 @@ SPEC CHECKSUMS:
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
   RxTest: 19d03286bdc0a3aaea5d61d4cde31fdf4bb8a5ba
-  SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: 6c634f8bb4c5543c182c3b13aa667ff3c48086a6
+PODFILE CHECKSUM: 88f07cf2a6734de6993a69d275b292c2e0a372ff
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.3
